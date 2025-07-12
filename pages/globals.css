@@ -492,6 +492,12 @@ label {
   color: #555;
   font-family: var(--font-tiro-bangla);
 }
+.content-Heading{
+  font-size: 30px;
+  color: #1e3a8a;
+  font-family: var(--font-tiro-bangla);
+  margin-bottom: 10px;
+}
 
 .Content-Details p {
   font-size: 20px !important;
