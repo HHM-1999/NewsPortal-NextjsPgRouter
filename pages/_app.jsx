@@ -3,8 +3,7 @@ import Header from './Components/Header.jsx'
 import { Tiro_Bangla } from 'next/font/google';
 import Footer from "./Components/Footer";
 import Head from "next/head";
-
-
+import BackToTopButton from './Components/common/BackToTopButton'
 const tiroBangla = Tiro_Bangla({
     variable: "--font-tiro-bangla",
     subsets: ["bengali"],
@@ -18,10 +17,11 @@ export default function App({ Component, pageProps }) {
                 <title>News Portal</title>
             </Head>
             <Header />
-            <div>
-                <Component {...pageProps} />
-            </div>
+            <Component {...pageProps} />
+            
             <Footer />
+            <BackToTopButton />
+
         </main>
 
 

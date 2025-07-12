@@ -21,7 +21,7 @@ export default function Page() {
                <Sports />
                <Finance />
                <Entertainment />
-               <Education />
+               <Education /> 
                <LifeStyle />
 
         </div>

@@ -14,49 +14,54 @@ export default function ArchiveClient({ initialData = [], initialCatList = [] })
     const [offset, setOffset] = useState(initialData.length);
     const [hasMore, setHasMore] = useState(initialData.length === 12);
 
-    const fetchArchive = async (params, append = false) => {
+    const fetchArchive = (params, append = false) => {
         setLoading(true);
-        try {
-            const adjustedParams = { ...params };
-
-            // Adjust end date for full day
-            if (adjustedParams.end_date) {
-                const end = new Date(adjustedParams.end_date);
-                end.setHours(23, 59, 59, 999);
-                adjustedParams.end_date = end.toISOString();
-            }
-
-            const res = await postApi("archive", adjustedParams);
-            let newData = res?.data || [];
-
-            // Filter by date range (safety)
-            if (adjustedParams.start_date) {
-                const startTime = new Date(adjustedParams.start_date).getTime();
-                const endTime = adjustedParams.end_date
-                    ? new Date(adjustedParams.end_date).getTime()
-                    : null;
-
-                newData = newData.filter((item) => {
-                    const itemTime = new Date(item.created_at).getTime();
-                    return endTime ? itemTime >= startTime && itemTime <= endTime : itemTime >= startTime;
-                });
-            }
-
-            if (append) {
-                setArchivedata((prev) => [...prev, ...newData]);
-                setOffset((prev) => prev + newData.length);
-            } else {
-                setArchivedata(newData);
-                setOffset(newData.length);
-            }
-
-            setHasMore(newData.length === 12 && newData.length > 0);
-        } catch (err) {
-            console.error("Archive fetch error:", err);
-        } finally {
-            setLoading(false);
+        const adjustedParams = { ...params };
+    
+        // Adjust end date for full day
+        if (adjustedParams.end_date) {
+            const end = new Date(adjustedParams.end_date);
+            end.setHours(23, 59, 59, 999);
+            adjustedParams.end_date = end.toISOString();
         }
+    
+        postApi("archive", adjustedParams)
+            .then((res) => {
+                let newData = res?.data || [];
+    
+                // Filter by date range (safety)
+                if (adjustedParams.start_date) {
+                    const startTime = new Date(adjustedParams.start_date).getTime();
+                    const endTime = adjustedParams.end_date
+                        ? new Date(adjustedParams.end_date).getTime()
+                        : null;
+    
+                    newData = newData.filter((item) => {
+                        const itemTime = new Date(item.created_at).getTime();
+                        return endTime
+                            ? itemTime >= startTime && itemTime <= endTime
+                            : itemTime >= startTime;
+                    });
+                }
+    
+                if (append) {
+                    setArchivedata((prev) => [...prev, ...newData]);
+                    setOffset((prev) => prev + newData.length);
+                } else {
+                    setArchivedata(newData);
+                    setOffset(newData.length);
+                }
+    
+                setHasMore(newData.length === 12 && newData.length > 0);
+            })
+            .catch((err) => {
+                console.error("Archive fetch error:", err);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
     };
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
