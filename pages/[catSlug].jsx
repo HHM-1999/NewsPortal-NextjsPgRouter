@@ -86,8 +86,8 @@ const CategoryPage = () => {
     };
 
     if (loading && newsList.length === 0) return <div className='loader-section'>
-        <img src={"/assets/media/common/loading.gif"} alt="Loading" title="Loading ....." />
-    </div>;
+    <img src={"/loading.gif"} alt="Loading" title="Loading ....." />
+  </div>;
     if (!category) return <NotFound />;
 
     return (

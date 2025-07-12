@@ -39,10 +39,10 @@ const NewsDetailsPage = () => {
     headline: firstContentItem?.DetailsHeading,
     image: [`https://assets.deshkalnews.com/${firstContentItem?.ImageSmPath}`],
     datePublished: "", // add if available
-    author: [{ "@type": "Organization", name: "Barta24" }],
+    author: [{ "@type": "Organization", name: "NewsPortal" }],
     publisher: {
       "@type": "Organization",
-      name: "Barta24",
+      name: "NewsPortal",
       logo: {
         "@type": "ImageObject",
         url: "https://assets.deshkalnews.com/logo.png",
@@ -50,22 +50,22 @@ const NewsDetailsPage = () => {
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://www.barta24.com/details/${catSlug}/${id}`,
+      "@id": `https://www.NewsPortal.com/details/${catSlug}/${id}`,
     },
   };
 
   return (
     <>
       <Head>
-        <title>{firstContentItem?.DetailsHeading || "Details - Barta24"}</title>
+        <title>{firstContentItem?.DetailsHeading || "Details - NewsPortal"}</title>
         <meta
           name="description"
-          content={firstContentItem?.DetailsHeading || "Read full news on Barta24."}
+          content={firstContentItem?.DetailsHeading || "Read full news on NewsPortal."}
         />
-        <meta property="og:title" content={firstContentItem?.DetailsHeading || "Barta24 News"} />
+        <meta property="og:title" content={firstContentItem?.DetailsHeading || "NewsPortal News"} />
         <meta
           property="og:description"
-          content={firstContentItem?.DetailsHeading || "Barta24 - Trusted News"}
+          content={firstContentItem?.DetailsHeading || "NewsPortal - Trusted News"}
         />
         <meta
           property="og:image"
