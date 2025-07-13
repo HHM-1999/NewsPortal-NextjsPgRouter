@@ -26,10 +26,10 @@ const DynamicMetadataClient = () => {
                     const currentId = window.location.pathname.split("/").pop();
                     if (currentId !== id) {
                         // Update title + description
-                        document.title = title || "Barta24";
+                        document.title = title || "NewsPortal";
                         const descriptionMeta = document.querySelector("meta[name='description']");
                         if (descriptionMeta) {
-                            descriptionMeta.setAttribute("content", title || "Barta24");
+                            descriptionMeta.setAttribute("content", title || "NewsPortal");
                         }
 
                         // ✅ Update Open Graph + Twitter image

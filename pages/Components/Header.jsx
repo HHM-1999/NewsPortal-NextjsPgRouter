@@ -3,7 +3,6 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import Logo from '../assets/media/common/logo2.png'
 import Image from 'next/image';
-// import ScrollLink from '../../utils/ScrollLink';
 
 const Header = () => {
     const [isSticky, setIsSticky] = useState(false);

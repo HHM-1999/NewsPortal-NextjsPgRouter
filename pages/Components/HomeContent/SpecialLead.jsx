@@ -1,35 +1,42 @@
-import React from 'react'
+"use client";
+
+import React, { useEffect, useState } from 'react';
 import getApi from '../../../lib/getApi';
 import Link from 'next/link';
 
-async function delay(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-}
+const SpecialLead = () => {
+  const [leadData, setLeadData] = useState([]);
+//   const [loading, setLoading] = useState(true);
 
-let LeadData = [];
-const SpecialLead = async () => {
-    await delay(3000); 
-    const list = await getApi('home-json-bn/generateSpecialTopOne.json');
-    LeadData = list.slice(0, 4);
-    return (
-        <div className="container">
-            <div className="row">
-                {LeadData.map((nc, i) => {
-                    return (
-                        <div className="col-lg-3" key={i}>
-                            <div className="card-content">
-                                <h4 className="title">
-                                    <Link href={"/details/" + nc.categorySlug + "/" + nc.ContentID}>{nc.DetailsHeading}</Link></h4>
-                                <p className="intro">{nc.ContentBrief}</p>
-                            </div>
-                        </div>
-                    )
-                })}
+  useEffect(() => {
+    new Promise((resolve) => setTimeout(resolve, 100))
+      .then(() => getApi('home-json-bn/generateSpecialTopOne.json'))
+      .then((list) => {
+        setLeadData(list.slice(0, 4));
+      })
+    //   .finally(() => setLoading(false));
+  }, []);
 
+//   if (loading) return <div>Loading...</div>;
+if (!leadData) return null;
+  return (
+    <div className="container">
+      <div className="row">
+        {leadData.map((nc, i) => (
+          <div className="col-lg-3" key={i}>
+            <div className="card-content">
+              <h4 className="title">
+                <Link href={`/details/${nc.categorySlug}/${nc.ContentID}`}>
+                  {nc.DetailsHeading}
+                </Link>
+              </h4>
+              <p className="intro">{nc.ContentBrief}</p>
             </div>
-        </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
-    )
-}
-
-export default SpecialLead
+export default SpecialLead;

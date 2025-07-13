@@ -1,35 +1,18 @@
-// pages/details/[catSlug]/[id].jsx
-import React, { useEffect, useState, Suspense } from "react";
-import { useRouter } from "next/router";
 import Head from "next/head";
 import getApi from "../../../lib/getApi";
-import DynamicMetadataClient from "../../Components/Details/DynamicMetadataClient"; // update path if needed
-import SocialShare from "../../Components/Details/SocialShare"; // update path if needed
-import SkeletonSection from "../../Components/common/SkeletonSection";
+import DynamicMetadataClient from "../../Components/Details/DynamicMetadataClient"; // make sure it's client if needed
+import SocialShare from "../../Components/Details/SocialShare"; // make sure it's client if needed
+// import SkeletonSection from "../../../Components/common/SkeletonSection";
 import Image from "next/image";
 
-
-
-const NewsDetailsPage = () => {
-  const router = useRouter();
-  const { catSlug, id } = router.query;
-
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    if (!id) return;
-
-    const fetchData = async () => {
-      const content = await getApi(`content-details/${id}`);
-      setData(content?.data || []);
-    };
-
-    fetchData();
-  }, [id]);
-
-  if (!data || data.length === 0) return <div className='loader-section'>
-  <img src={"/loading.gif"} alt="Loading" title="Loading ....." />
-</div>;
+const NewsDetailsPage = ({ data, catSlug, id }) => {
+  if (!data || data.length === 0) {
+    return (
+      <div className="loader-section">
+        <img src="/loading.gif" alt="Loading" title="Loading ....." />
+      </div>
+    );
+  }
 
   const firstContentItem = data[0];
 
@@ -38,7 +21,7 @@ const NewsDetailsPage = () => {
     "@type": "NewsArticle",
     headline: firstContentItem?.DetailsHeading,
     image: [`https://assets.deshkalnews.com/${firstContentItem?.ImageSmPath}`],
-    datePublished: "", // add if available
+    datePublished: "", // optional
     author: [{ "@type": "Organization", name: "NewsPortal" }],
     publisher: {
       "@type": "Organization",
@@ -134,23 +117,21 @@ const NewsDetailsPage = () => {
                     ) : null}
                   </div>
                 ) : (
-                  <Suspense fallback={<SkeletonSection />}>
-                    <picture>
-                      <Image
-                        src={`${process.env.NEXT_PUBLIC_IMG_PATH + nc.ImageBgPath}`}
-                        alt={nc.DetailsHeading}
-                        title={nc.DetailsHeading}
-                        width={400}
-                        height={250}
-                        style={{
-                          width: "100%",
-                          height: "auto",
-                          objectFit: "cover",
-                          position: "relative",
-                        }}
-                      />
-                    </picture>
-                  </Suspense>
+                  <picture>
+                    <Image
+                      src={`${process.env.NEXT_PUBLIC_IMG_PATH + nc.ImageBgPath}`}
+                      alt={nc.DetailsHeading}
+                      title={nc.DetailsHeading}
+                      width={400}
+                      height={250}
+                      style={{
+                        width: "100%",
+                        height: "auto",
+                        objectFit: "cover",
+                        position: "relative",
+                      }}
+                    />
+                  </picture>
                 )}
 
                 <div
@@ -167,6 +148,27 @@ const NewsDetailsPage = () => {
   );
 };
 
+export function getServerSideProps(context) {
+  const { id, catSlug } = context.params;
+
+  return getApi(`content-details/${id}`)
+    .then((response) => {
+      const data = response?.data || [];
+      return {
+        props: {
+          data,
+          id,
+          catSlug,
+        },
+      };
+    })
+    .catch((error) => {
+      console.error("Error loading content details:", error);
+      return {
+        notFound: true,
+      };
+    });
+}
+
+
 export default NewsDetailsPage;
-
-
