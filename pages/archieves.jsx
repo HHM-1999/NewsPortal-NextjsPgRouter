@@ -4,6 +4,7 @@ import postApi from "../lib/postApi";
 import Head from "next/head";
 
 export default function ArchivePage({ initialData, initialCatList }) {
+
   return (
     <>
       <Head>
@@ -38,7 +39,7 @@ export function getStaticProps() {
 
   return getApi("category")
     .then((catRes) => {
-      const initialCatList = catRes?.category || [];
+      const initialCatList = catRes?.categories || [];
       return postApi("archive", formData).then((archiveRes) => {
         const initialData = archiveRes?.data || [];
         return {
