@@ -43,10 +43,10 @@ const NewsDetailsPage = ({data}) => {
     publisher: {
       "@type": "Organization",
       name: "NewsPortal",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://assets.deshkalnews.com/logo.png",
-      },
+      // logo: {
+      //   "@type": "ImageObject",
+      //   url: "https://assets.deshkalnews.com/logo.png",
+      // },
     },
     // mainEntityOfPage: {
     //   "@type": "WebPage",
@@ -90,7 +90,7 @@ const NewsDetailsPage = ({data}) => {
                 data-title={nc.DetailsHeading}
                 data-image={`${process.env.NEXT_PUBLIC_IMG_PATH + nc.ImageBgPath}`}
               >
-                <h2 className="catnameDetails">{nc.CategoryName}</h2>
+                <h2 className="catnameDetails">{nc.CategoryName}  ::</h2>
                 <h1 className="content-Heading">{nc.DetailsHeading}</h1>
                 <SocialShare title={nc.DetailsHeading} contentID={nc.ContentID} />
 
