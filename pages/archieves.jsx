@@ -1,4 +1,4 @@
-import ArchiveClient from "./Components/Archive/ArchiveClient";
+import ArchiveClient from "../Components/Archive/ArchiveClient";
 import getApi from "../lib/getApi";
 import postApi from "../lib/postApi";
 import Head from "next/head";

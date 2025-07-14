@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import getApi from '../../../lib/getApi';
-import ScrollLink from '../../../utils/ScrollLink';
+import getApi from '../../lib/getApi';
+import ScrollLink from '../../utils/ScrollLink';
 import Image from 'next/image';
 
 const Sports = () => {

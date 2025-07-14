@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import getApi from '../../../lib/getApi';
+import getApi from "../../lib/getApi";
 import Link from 'next/link';
 
 const SpecialLead = () => {

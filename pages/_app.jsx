@@ -1,9 +1,9 @@
 import "./globals.css";
-import Header from './Components/Header.jsx'
+import Header from '../Components/Header'
 import { Tiro_Bangla } from 'next/font/google';
-import Footer from "./Components/Footer";
+import Footer from "../Components/Footer";
 import Head from "next/head";
-import BackToTopButton from './Components/common/BackToTopButton'
+import BackToTopButton from '../Components/common/BackToTopButton'
 const tiroBangla = Tiro_Bangla({
     variable: "--font-tiro-bangla",
     subsets: ["bengali"],
@@ -18,7 +18,6 @@ export default function App({ Component, pageProps }) {
             </Head>
             <Header />
             <Component {...pageProps} />
-            
             <Footer />
             <BackToTopButton />
 

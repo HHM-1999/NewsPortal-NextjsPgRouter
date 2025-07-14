@@ -1,7 +1,7 @@
 "use client"
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import Logo from '../assets/media/common/logo2.png'
+import Logo from '../pages/assets/media/common/logo2.png'
 import Image from 'next/image';
 
 const Header = () => {

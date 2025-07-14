@@ -1,35 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import getApi from '../../../lib/getApi';
-import ScrollLink from '../../../utils/ScrollLink';
+import getApi from '../../lib/getApi';
+import ScrollLink from '../../utils/ScrollLink';
 import Image from 'next/image';
 
-const Entertainment = () => {
+const Education = () => {
   const [state, setState] = useState(null);
   const [state2, setState2] = useState([]);
   const [state3, setState3] = useState([]);
 //   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate delay
-    new Promise(resolve => setTimeout(resolve, 100))
-      .then(() => getApi('home-json-bn/generateCategory10.json'))
+    // simulate delay with Promise and setTimeout wrapped in a Promise
+    new Promise((resolve) => setTimeout(resolve, 100))
+      .then(() => getApi('home-json-bn/generateCategory13.json'))
       .then((list) => {
         setState(list[0]);
-        setState2(list.slice(1, 4));
-        setState3(list.slice(4, 7));
+        setState2(list.slice(1, 5));
+        setState3(list.slice(5, 9));
       })
     //   .finally(() => setLoading(false));
   }, []);
-  if (!state) return null;
-//   if (loading) return <div>Loading...</div>;
 
+  if (!state) return null;
   return (
     <div className='container'>
-      <ScrollLink href={"/entertainment"}>
+      <ScrollLink href={"/education"}>
         <div className="section-header">
           <div className="section-title">
-            <span className="shadow-text">বিনোদন</span>
-            <span className="main-text">বিনোদন</span>
+            <span className="shadow-text">শিক্ষা</span>
+            <span className="main-text">শিক্ষা</span>
             <span className="arrow">&rsaquo;</span>
           </div>
         </div>
@@ -47,6 +46,7 @@ const Entertainment = () => {
                       alt={state.DetailsHeading}
                       title={state.DetailsHeading}
                       priority
+                      placeholder={undefined}
                       style={{ width: '100%', height: 'auto', position: "relative" }}
                       width={800}
                       height={450}
@@ -63,16 +63,15 @@ const Entertainment = () => {
               ) : " "}
             </div>
           </div>
-
           <div className="col-md-7">
             <div className="row">
               <div className="col-md-6 border-right-inner2">
                 <div className="CatListWrap1">
-                  {state2.map(nc => (
+                  {state2.map((nc) => (
                     <div className="Catlist" key={nc.ContentID}>
                       <ScrollLink href={"/details/" + nc.Slug + "/" + nc.ContentID}>
                         <div className="row">
-                          <div className="col-md-7 col-7">
+                          <div className="col-md-5 col-5">
                             <picture>
                               <Image
                                 src={process.env.NEXT_PUBLIC_IMG_PATH + nc.ImageSmPath}
@@ -88,7 +87,7 @@ const Entertainment = () => {
                               <span className="play-btn"><i className="fas fa-play"></i></span>
                             )}
                           </div>
-                          <div className="col-md-5 col-5">
+                          <div className="col-md-7 col-7">
                             <h3 className="Title">{nc.DetailsHeading}</h3>
                           </div>
                         </div>
@@ -98,12 +97,12 @@ const Entertainment = () => {
                 </div>
               </div>
               <div className="col-md-6">
-                <div className="CatListWrap1">
-                  {state3.map(nc => (
+                <div className="CatListWrap2">
+                  {state3.map((nc) => (
                     <div className="Catlist" key={nc.ContentID}>
                       <ScrollLink href={"/details/" + nc.Slug + "/" + nc.ContentID}>
                         <div className="row">
-                          <div className="col-md-7 col-7">
+                          <div className="col-md-5 col-5">
                             <picture>
                               <Image
                                 src={process.env.NEXT_PUBLIC_IMG_PATH + nc.ImageSmPath}
@@ -119,7 +118,7 @@ const Entertainment = () => {
                               <span className="play-btn"><i className="fas fa-play"></i></span>
                             )}
                           </div>
-                          <div className="col-md-5 col-5">
+                          <div className="col-md-7 col-7">
                             <h3 className="Title">{nc.DetailsHeading}</h3>
                           </div>
                         </div>
@@ -136,4 +135,4 @@ const Entertainment = () => {
   )
 }
 
-export default Entertainment;
+export default Education;

@@ -1,36 +1,35 @@
-"use client";
-
 import React, { useEffect, useState } from 'react';
-import getApi from '../../../lib/getApi';
-import ScrollLink from '../../../utils/ScrollLink';
+import getApi from '../../lib/getApi';
+import ScrollLink from '../../utils/ScrollLink';
 import Image from 'next/image';
 
-const LifeStyle = () => {
+const Finance = () => {
   const [state, setState] = useState(null);
   const [state2, setState2] = useState([]);
   const [state3, setState3] = useState([]);
-  // const [loading, setLoading] = useState(true);
+//   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    new Promise(resolve => setTimeout(resolve, 100))
-      .then(() => getApi('home-json-bn/generateCategory71.json'))
+    // simulate delay with Promise + setTimeout
+    new Promise((resolve) => setTimeout(resolve, 100))
+      .then(() => getApi('home-json-bn/generateCategory7.json'))
       .then((list) => {
         setState(list[0]);
-        setState2(list.slice(1, 4));
-        setState3(list.slice(4, 7));
+        setState2(list.slice(1, 5));
+        setState3(list.slice(5, 9));
       })
     //   .finally(() => setLoading(false));
   }, []);
-
+  if (!state) return null;
 //   if (loading) return <div>Loading...</div>;
- if (!state) return null;
+
   return (
     <div className='container'>
-      <ScrollLink href={"/lifeStyle"}>
+      <ScrollLink href={"/finance-and-trade"}>
         <div className="section-header">
           <div className="section-title">
-            <span className="shadow-text">লাইফস্টাইল</span>
-            <span className="main-text">লাইফস্টাইল</span>
+            <span className="shadow-text">অর্থবাণিজ্য</span>
+            <span className="main-text">অর্থ-বাণিজ্য</span>
             <span className="arrow">&rsaquo;</span>
           </div>
         </div>
@@ -40,8 +39,8 @@ const LifeStyle = () => {
         <div className="row">
           <div className="col-md-5 border-right-inner2">
             <div className="lead-news">
-              {state && (
-                <ScrollLink href={`/details/${state.Slug}/${state.ContentID}`}>
+              {state ? (
+                <ScrollLink href={"/details/" + state.Slug + "/" + state.ContentID}>
                   <picture>
                     <Image
                       src={process.env.NEXT_PUBLIC_IMG_PATH + state.ImageBgPath}
@@ -61,19 +60,18 @@ const LifeStyle = () => {
                     <p>{state.ContentBrief}</p>
                   </div>
                 </ScrollLink>
-              )}
+              ) : " "}
             </div>
           </div>
-
           <div className="col-md-7">
             <div className="row">
               <div className="col-md-6 border-right-inner2">
                 <div className="CatListWrap1">
-                  {state2.map(nc => (
+                  {state2.map((nc) => (
                     <div className="Catlist" key={nc.ContentID}>
-                      <ScrollLink href={`/details/${nc.Slug}/${nc.ContentID}`}>
+                      <ScrollLink href={"/details/" + nc.Slug + "/" + nc.ContentID}>
                         <div className="row">
-                          <div className="col-md-7 col-7">
+                          <div className="col-md-5 col-5">
                             <picture>
                               <Image
                                 src={process.env.NEXT_PUBLIC_IMG_PATH + nc.ImageSmPath}
@@ -89,7 +87,7 @@ const LifeStyle = () => {
                               <span className="play-btn"><i className="fas fa-play"></i></span>
                             )}
                           </div>
-                          <div className="col-md-5 col-5">
+                          <div className="col-md-7 col-7">
                             <h3 className="Title">{nc.DetailsHeading}</h3>
                           </div>
                         </div>
@@ -98,14 +96,13 @@ const LifeStyle = () => {
                   ))}
                 </div>
               </div>
-
               <div className="col-md-6">
-                <div className="CatListWrap1">
-                  {state3.map(nc => (
+                <div className="CatListWrap2">
+                  {state3.map((nc) => (
                     <div className="Catlist" key={nc.ContentID}>
-                      <ScrollLink href={`/details/${nc.Slug}/${nc.ContentID}`}>
+                      <ScrollLink href={"/details/" + nc.Slug + "/" + nc.ContentID}>
                         <div className="row">
-                          <div className="col-md-7 col-7">
+                          <div className="col-md-5 col-5">
                             <picture>
                               <Image
                                 src={process.env.NEXT_PUBLIC_IMG_PATH + nc.ImageSmPath}
@@ -121,7 +118,7 @@ const LifeStyle = () => {
                               <span className="play-btn"><i className="fas fa-play"></i></span>
                             )}
                           </div>
-                          <div className="col-md-5 col-5">
+                          <div className="col-md-7 col-7">
                             <h3 className="Title">{nc.DetailsHeading}</h3>
                           </div>
                         </div>
@@ -134,9 +131,8 @@ const LifeStyle = () => {
           </div>
         </div>
       </div>
-
     </div>
   );
 };
 
-export default LifeStyle;
+export default Finance;

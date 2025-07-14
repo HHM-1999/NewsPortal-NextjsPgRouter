@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import getApi from '../../../lib/getApi';
+import getApi from '../../lib/getApi';
 import Link from 'next/link';
 import Image from 'next/image';
-import Ads from '../../assets/media/advertisement/13982910857184178936.gif';
+import Ads from '../../pages/assets/media/advertisement/13982910857184178936.gif';
 
 const Lead = () => {
   const [leadData, setLeadData] = useState(null);

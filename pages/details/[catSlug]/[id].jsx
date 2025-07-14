@@ -1,6 +1,6 @@
 import Head from "next/head";
 import getApi from "../../../lib/getApi";
-import DynamicMetadataClient from "../../Components/Details/DynamicMetadataClient"; // make sure it's client if needed
+import DynamicMetadataClient from "../../../Components/Details/DynamicMetadataClient"; // make sure it's client if needed
 // import SkeletonSection from "../../../Components/common/SkeletonSection";
 import Image from "next/image";
 import SocialShare from "./SocialShare";
@@ -10,12 +10,13 @@ export async function getServerSideProps(context) {
   try {
     const response = await getApi(`content-details/${id}`);
     const data = response?.data || [];
+    
     // console.log(data);
     return {
       props: {data},
     };
   } catch (error) {
-    console.error("Error loading content details:", error);
+    console.error("SSR ERROR for content ID", id, error?.message);
     return {
       notFound: true,
     };

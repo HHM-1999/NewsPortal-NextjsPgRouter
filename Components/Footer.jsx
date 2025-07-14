@@ -1,7 +1,7 @@
 "use client"
 import Link from 'next/link';
 import React from 'react';
-import Logo from '../assets/media/common/logoWhiteNews.png'
+import Logo from "../pages/assets/media/common/logoWhiteNews.png"
 import Image from 'next/image';
 const Footer = () => {
     return (

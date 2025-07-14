@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import postApi from "../../../lib/postApi";
+import postApi from "../../lib/postApi";
 import Image from "next/image";
 
 export default function ArchiveClient({ initialData = [], initialCatList = [] }) {
