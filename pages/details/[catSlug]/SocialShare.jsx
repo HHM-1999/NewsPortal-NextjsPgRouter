@@ -4,8 +4,10 @@ import React, { useState, useEffect } from "react";
 export default function SocialShare({ title, contentID }) {
   const [pageURL, setPageURL] = useState("");
 
+
   useEffect(() => {
     const urlArr = window.location.href.split("/");
+    // console.log(urlArr);
     urlArr[urlArr.length - 1] = contentID;
     const url = urlArr.join("/");
     setPageURL(url);

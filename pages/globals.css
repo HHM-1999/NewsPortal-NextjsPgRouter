@@ -603,6 +603,21 @@ label {
   font-family: var(--font-tiro-bangla) !important;
 
 }
+.Content-Details p ul li {
+  font-size: 18px !important;
+  line-height: 26px !important;
+  text-align: justify !important;
+  color: #222 !important;
+  font-family: var(--font-tiro-bangla) !important;
+
+}
+.catnameDetails{
+  font-size: 18px;
+  color: #222;
+  font-family: var(--font-tiro-bangla) !important;
+  margin-bottom: 20px;
+
+}
 
 .Content-Details p img {
   width: 100% !important;

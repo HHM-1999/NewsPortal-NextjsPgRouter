@@ -1,11 +1,27 @@
 import Head from "next/head";
 import getApi from "../../../lib/getApi";
 import DynamicMetadataClient from "../../Components/Details/DynamicMetadataClient"; // make sure it's client if needed
-import SocialShare from "../../Components/Details/SocialShare"; // make sure it's client if needed
 // import SkeletonSection from "../../../Components/common/SkeletonSection";
 import Image from "next/image";
+import SocialShare from "./SocialShare";
+export async function getServerSideProps(context) {
+  const { id } = context.params;
 
-const NewsDetailsPage = ({ data, catSlug, id }) => {
+  try {
+    const response = await getApi(`content-details/${id}`);
+    const data = response?.data || [];
+    // console.log(data);
+    return {
+      props: {data},
+    };
+  } catch (error) {
+    console.error("Error loading content details:", error);
+    return {
+      notFound: true,
+    };
+  }
+}
+const NewsDetailsPage = ({data}) => {
   if (!data || data.length === 0) {
     return (
       <div className="loader-section">
@@ -20,7 +36,7 @@ const NewsDetailsPage = ({ data, catSlug, id }) => {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     headline: firstContentItem?.DetailsHeading,
-    image: [`https://assets.deshkalnews.com/${firstContentItem?.ImageSmPath}`],
+    image: [`${process.env.NEXT_PUBLIC_IMG_PATH}/${firstContentItem?.ImageSmPath}`],
     datePublished: "", // optional
     author: [{ "@type": "Organization", name: "NewsPortal" }],
     publisher: {
@@ -33,7 +49,7 @@ const NewsDetailsPage = ({ data, catSlug, id }) => {
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://www.NewsPortal.com/details/${catSlug}/${id}`,
+      "@id": `https://www.NewsPortal.com/details/${data.catSlug}/${data.id}`,
     },
   };
 
@@ -64,14 +80,16 @@ const NewsDetailsPage = ({ data, catSlug, id }) => {
         <DynamicMetadataClient />
         <div className="row">
           <div className="col-lg-10 m-auto">
+        
             {data.map((nc) => (
               <div
                 className="newsDetail"
                 key={nc.ContentID}
                 id={nc.ContentID}
                 data-title={nc.DetailsHeading}
-                data-image={`https://assets.deshkalnews.com/${nc.ImageSmPath}`}
+                data-image={`${process.env.NEXT_PUBLIC_IMG_PATH + nc.ImageBgPath}`}
               >
+                <h2 className="catnameDetails">{nc.CategoryName}</h2>
                 <h1 className="content-Heading">{nc.DetailsHeading}</h1>
                 <SocialShare title={nc.DetailsHeading} contentID={nc.ContentID} />
 
@@ -148,27 +166,7 @@ const NewsDetailsPage = ({ data, catSlug, id }) => {
   );
 };
 
-export function getServerSideProps(context) {
-  const { id, catSlug } = context.params;
 
-  return getApi(`content-details/${id}`)
-    .then((response) => {
-      const data = response?.data || [];
-      return {
-        props: {
-          data,
-          id,
-          catSlug,
-        },
-      };
-    })
-    .catch((error) => {
-      console.error("Error loading content details:", error);
-      return {
-        notFound: true,
-      };
-    });
-}
 
 
 export default NewsDetailsPage;
