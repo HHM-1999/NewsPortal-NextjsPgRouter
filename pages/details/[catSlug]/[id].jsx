@@ -48,10 +48,10 @@ const NewsDetailsPage = ({data}) => {
         url: "https://assets.deshkalnews.com/logo.png",
       },
     },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `https://www.NewsPortal.com/details/${data.catSlug}/${data.id}`,
-    },
+    // mainEntityOfPage: {
+    //   "@type": "WebPage",
+    //   "@id": `https://www.NewsPortal.com/details/${data.catSlug}/${data.id}`,
+    // },
   };
 
   return (
