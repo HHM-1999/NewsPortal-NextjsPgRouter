@@ -33,7 +33,7 @@ const Header = () => {
                     <div className="date-time d-flex align-items-center">
                         {/* <i className="bi bi-list fs-4 me-3"></i> */}
                         <span className="text-muted small">{today}</span>
-                        <i className="bi bi-brightness-high ms-2 text-muted fs-5"></i>
+                        {/* <i className="bi bi-brightness-high ms-2 text-muted fs-5"></i> */}
                     </div>
                     <div className="d-flex align-items-center gap-2 form-section">
                         <form className="d-flex" role="search">
