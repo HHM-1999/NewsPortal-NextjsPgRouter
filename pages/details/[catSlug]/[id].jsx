@@ -4,6 +4,8 @@ import DynamicMetadataClient from "../../../Components/Details/DynamicMetadataCl
 // import SkeletonSection from "../../../Components/common/SkeletonSection";
 import Image from "next/image";
 import SocialShare from "./SocialShare";
+import NotFound from "../../not-found";
+
 export async function getServerSideProps(context) {
   const { id } = context.params;
 
@@ -17,9 +19,8 @@ export async function getServerSideProps(context) {
     };
   } catch (error) {
     console.error("SSR ERROR for content ID", id, error?.message);
-    return {
-      notFound: true,
-    };
+    return  <NotFound />
+    
   }
 }
 const NewsDetailsPage = ({data}) => {
@@ -43,15 +44,7 @@ const NewsDetailsPage = ({data}) => {
     publisher: {
       "@type": "Organization",
       name: "NewsPortal",
-      // logo: {
-      //   "@type": "ImageObject",
-      //   url: "https://assets.deshkalnews.com/logo.png",
-      // },
     },
-    // mainEntityOfPage: {
-    //   "@type": "WebPage",
-    //   "@id": `https://www.NewsPortal.com/details/${data.catSlug}/${data.id}`,
-    // },
   };
 
   return (

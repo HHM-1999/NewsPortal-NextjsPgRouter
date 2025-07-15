@@ -16,8 +16,8 @@ const International = () => {
       .then(() => getApi('home-json-bn/generateCategory6.json'))
       .then((list) => {
         setState(list[0]);
-        setState2(list.slice(1, 4));
-        setState3(list.slice(4, 8));
+        setState2(list.slice(1, 5));
+        setState3(list.slice(5, 8));
       })
     //   .finally(() => setLoading(false));
   }, []);

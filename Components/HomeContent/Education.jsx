@@ -3,7 +3,7 @@ import getApi from '../../lib/getApi';
 import ScrollLink from '../../utils/ScrollLink';
 import Image from 'next/image';
 
-const Education = () => {
+const  Education = () => {
   const [state, setState] = useState(null);
   const [state2, setState2] = useState([]);
   const [state3, setState3] = useState([]);
