@@ -13,7 +13,7 @@ const Footer = () => {
                     <div className="col-md-6 mb-4">
                         {/* <h5>News Portal</h5> */}
                         <Link href="/">
-                            <div className="Logo-area">
+                            <div className="Logo-area2">
                                 <Image
                                     src={Logo}
                                     alt="News Portal.com"
