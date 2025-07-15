@@ -12,18 +12,18 @@ export async function getServerSideProps(context) {
   try {
     const response = await getApi(`content-details/${id}`);
     const data = response?.data || [];
-    
+
     // console.log(data);
     return {
-      props: {data},
+      props: { data },
     };
   } catch (error) {
     console.error("SSR ERROR for content ID", id, error?.message);
-    return  <NotFound />
-    
+    return <NotFound />
+
   }
 }
-const NewsDetailsPage = ({data}) => {
+const NewsDetailsPage = ({ data }) => {
   if (!data || data.length === 0) {
     return (
       <div className="loader-section">
@@ -64,17 +64,23 @@ const NewsDetailsPage = ({data}) => {
           property="og:image"
           content={`https://assets.deshkalnews.com/${firstContentItem?.ImageSmPath}`}
         />
+        <meta
+          property="og:url"
+          content={`https://deshkalnews.com/details/${firstContentItem?.CategorySlug}/${firstContentItem?.ContentID}`}
+        />
+        <meta property="og:type" content="article" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </Head>
 
+
       <div className="container" style={{ padding: "20px" }}>
         <DynamicMetadataClient />
         <div className="row">
           <div className="col-lg-10 m-auto">
-        
+
             {data.map((nc) => (
               <div
                 className="newsDetail"

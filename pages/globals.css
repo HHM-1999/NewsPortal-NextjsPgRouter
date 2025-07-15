@@ -109,6 +109,7 @@ picture img {
   transform: translateY(0);
   pointer-events: auto;
 }
+
 #button {
   display: inline-block;
   background-color: #ff2600;
@@ -125,6 +126,7 @@ picture img {
   z-index: 1000;
   border: none;
 }
+
 /* #button::after {
   content: "\f077";
   font-family: FontAwesome;
@@ -138,9 +140,11 @@ picture img {
   cursor: pointer;
   background-color: #333;
 }
+
 #button:active {
   background-color: #555;
 }
+
 #button.show {
   opacity: 1;
   visibility: visible;
@@ -156,23 +160,28 @@ picture img {
   color: #6c767a;
   line-height: 1.9;
 }
+
 @media (min-width: 500px) {
   .content {
     width: 43%;
   }
+
   #button {
     margin: 30px;
   }
 }
+
 .content h1 {
   margin-bottom: -10px;
   color: #03a9f4;
   line-height: 1.5;
 }
+
 .content h3 {
   font-style: italic;
   color: #96a2a7;
 }
+
 .transition-back-to-top {
   opacity: 0;
   transform: translateY(20px);
@@ -287,7 +296,29 @@ label {
   justify-content: center !important;
 }
 
-.collapse:not(.show) {
+/* .collapse:not(.show) {
+  display: flex;
+  justify-content: center;
+} */
+.menuArea .navbar-nav {
+  justify-content: center;
+  gap: 8px;
+  display: flex;
+  padding: 0 25px;
+}
+
+.menuArea .navbar-light .navbar-nav .nav-link {
+  color: #121212;
+  padding: 8px 8px !important;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 500;
+  display: block;
+}
+
+.menuArea .navbar-expand-lg .navbar-collapse {
+  /* flex-grow: unset; */
+
   display: flex;
   justify-content: center;
 }
@@ -348,6 +379,7 @@ label {
 .DTopNews {
   position: relative;
 }
+
 /* .DTopNews .DImageResize image{
   aspect-ratio: 1.68;
 } */
@@ -362,7 +394,8 @@ label {
   position: absolute;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 0%, rgb(0, 0, 0) 100%);
 }
-.Lead-AreaSection .Catlist img{
+
+.Lead-AreaSection .Catlist img {
   aspect-ratio: 1.68 !important;
 }
 
@@ -519,7 +552,8 @@ label {
   position: relative;
   top: -2px;
 }
-.lead-news a{
+
+.lead-news a {
   text-decoration: none;
 }
 
@@ -580,7 +614,8 @@ label {
   color: #555;
   font-family: var(--font-tiro-bangla);
 }
-.content-Heading{
+
+.content-Heading {
   font-size: 30px;
   color: #1e3a8a;
   font-family: var(--font-tiro-bangla);
@@ -603,6 +638,7 @@ label {
   font-family: var(--font-tiro-bangla) !important;
 
 }
+
 .Content-Details p ul li {
   font-size: 18px !important;
   line-height: 26px !important;
@@ -611,7 +647,8 @@ label {
   font-family: var(--font-tiro-bangla) !important;
 
 }
-.catnameDetails{
+
+.catnameDetails {
   font-size: 18px;
   color: #222;
   font-family: var(--font-tiro-bangla) !important;
@@ -622,20 +659,23 @@ label {
 .Content-Details p img {
   width: 100% !important;
 }
+
 figcaption {
-	font-size: 16px !important;
-	padding: 5px 0 !important;
-	text-align: center !important;
-	color: #555 !important;
-	font-family: var(--font-tiro-bangla) !important;
-	font-weight: 600 !important;
+  font-size: 16px !important;
+  padding: 5px 0 !important;
+  text-align: center !important;
+  color: #555 !important;
+  font-family: var(--font-tiro-bangla) !important;
+  font-weight: 600 !important;
   border-bottom: 5px solid #ddd !important;
 }
+
 #contentDetails ul li span {
-	font-family: SolaimanLipi !important;
-	font-size: 17px !important;
-	line-height: 27px !important;
+  font-family: SolaimanLipi !important;
+  font-size: 17px !important;
+  line-height: 27px !important;
 }
+
 /* globals.css or a dedicated CSS module */
 
 .shimmer-wrapper {
@@ -659,6 +699,7 @@ figcaption {
   0% {
     background-position: -800px 0;
   }
+
   100% {
     background-position: 800px 0;
   }
@@ -719,40 +760,49 @@ figcaption {
   font-family: var(--font-tiro-bangla);
 
 }
+
 /* styles/shimmer.module.css */
 .shimmerWrapper {
   position: relative;
   overflow: hidden;
-  background: #f6f7f8; /* Light gray background for shimmer */
+  background: #f6f7f8;
+  /* Light gray background for shimmer */
   background: linear-gradient(to right, #f6f7f8 0%, #edeef0 20%, #f6f7f8 40%);
   background-size: 1000px 100%;
   animation: shimmer 1.5s infinite linear;
   width: 100%;
   height: auto;
-  min-height: 250px; /* IMPORTANT: Ensures the shimmer area has a visible height */
-  display: flex; /* Helps in layout if needed */
+  min-height: 250px;
+  /* IMPORTANT: Ensures the shimmer area has a visible height */
+  display: flex;
+  /* Helps in layout if needed */
   align-items: center;
   justify-content: center;
 }
 
 @keyframes shimmer {
   0% {
-      background-position: -500px 0;
+    background-position: -500px 0;
   }
+
   100% {
-      background-position: 500px 0;
+    background-position: 500px 0;
   }
 }
 
 /* New CSS for controlling image visibility */
 .imageLoading {
-  opacity: 0; /* Image is hidden initially, allowing shimmer to show */
-  transition: opacity 0.5s ease-in-out; /* Smooth transition */
+  opacity: 0;
+  /* Image is hidden initially, allowing shimmer to show */
+  transition: opacity 0.5s ease-in-out;
+  /* Smooth transition */
 }
 
 .imageLoaded {
-  opacity: 1; /* Image becomes visible */
-  transition: opacity 0.5s ease-in-out; /* Smooth transition */
+  opacity: 1;
+  /* Image becomes visible */
+  transition: opacity 0.5s ease-in-out;
+  /* Smooth transition */
 }
 
 
