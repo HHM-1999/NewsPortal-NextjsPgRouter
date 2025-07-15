@@ -9,7 +9,7 @@ import Ads from '../../pages/assets/media/advertisement/13982910857184178936.gif
 const International = () => {
   const [state, setState] = useState(null);
   const [state2, setState2] = useState([]);
-  const [state3, setState3] = useState([]);
+  // const [state3, setState3] = useState([]);
 //   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

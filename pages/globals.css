@@ -295,6 +295,9 @@ label {
   display: flex !important;
   justify-content: center !important;
 }
+.navbar{
+  display: block;
+}
 
 /* .collapse:not(.show) {
   display: flex;
@@ -317,8 +320,6 @@ label {
 }
 
 .menuArea .navbar-expand-lg .navbar-collapse {
-  /* flex-grow: unset; */
-
   display: flex;
   justify-content: center;
 }
@@ -356,7 +357,81 @@ label {
 .Dheader {
   border-bottom: 1px solid #efefef;
   background-color: #f7f7f7;
-  padding: 8px;
+  padding: 0 8px;
+}
+.DSocialLink {
+	margin-top: 10px;
+}
+.DSocialLink ul li a .icon .DSocialLink ul {
+	padding: 0;
+	margin: 0
+}
+
+.DSocialLink ul li {
+	list-style: none;
+	display: inline;
+}
+
+.DSocialLink ul li a .icon {
+	font-size: 15px;
+	width: 27px;
+	height: 27px;
+	text-align: center;
+	line-height: 27px;
+	border-radius: 50px;
+	margin-right: 3px;
+}
+
+.DSocialLink ul li .icon.fa-x-twitter {
+	background: #141414;
+	color: #fff;
+	padding: 5px 0;
+}
+
+.DSocialLink ul li .icon.fa-x-twitter:hover {
+	background: #d4d6df;
+	color: #000;
+}
+
+.DSocialLink ul li .icon.fa-whatsapp {
+	background: #25D366;
+	color: #fff;
+	padding: 5px 0;
+}
+
+.DSocialLink ul li .icon.fa-instagram {
+	background: #d6249f;
+	background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+	color: #fff;
+	padding: 5px 0;
+}
+
+.DSocialLink ul li .icon:hover {
+	background: #d4d6df;
+	color: #000;
+}
+
+.DSocialLink ul li .icon.fa-facebook-f {
+	background: #264586;
+	color: #fff;
+	padding: 5px 0;
+}
+
+.DSocialLink ul li .icon.fa-facebook-f:hover {
+	background: #d4d6df;
+	color: #000;
+}
+
+.DSocialLink ul li .icon.fa-youtube {
+	background: #D82924;
+	color: #fff;
+	padding: 5px 0;
+}
+
+.DSocialLink ul li .icon.fa-linkedin {
+	background: #3771eb;
+	color: #fff;
+	padding: 5px 0;
 }
 
 /* Loader  */
@@ -856,7 +931,17 @@ figcaption {
   .Dheader {
     display: none;
   }
+  .navbar{
+    display: none;
+  }
+  .card-content{
+    margin-bottom: 10px;
+  }
 
+  .Logo-area2 {
+    display: flex;
+    justify-content: center;
+  }
   .CatListWrap {
     padding-top: 20px;
   }
