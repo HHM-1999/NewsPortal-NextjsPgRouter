@@ -97,7 +97,7 @@ const Finance = () => {
                 </div>
               </div>
               <div className="col-md-6">
-                <div className="CatListWrap2">
+                <div className="CatListWrap1">
                   {state3.map((nc) => (
                     <div className="Catlist" key={nc.ContentID}>
                       <ScrollLink href={"/details/" + nc.Slug + "/" + nc.ContentID}>

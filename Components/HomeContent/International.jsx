@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import getApi from '../../lib/getApi';
 import ScrollLink from '../../utils/ScrollLink';
 import Image from 'next/image';
+import Ads from '../../pages/assets/media/advertisement/13982910857184178936.gif';
 
 const International = () => {
   const [state, setState] = useState(null);
@@ -17,7 +18,7 @@ const International = () => {
       .then((list) => {
         setState(list[0]);
         setState2(list.slice(1, 5));
-        setState3(list.slice(5, 8));
+        // setState3(list.slice(5, 8));
       })
     //   .finally(() => setLoading(false));
   }, []);
@@ -99,7 +100,7 @@ const International = () => {
                 </div>
               </div>
 
-              <div className="col-md-6">
+              {/* <div className="col-md-6">
                 <div className="CatListWrap2">
                   {state3.map((nc) => (
                     <div className="Catlist" key={nc.ContentID}>
@@ -128,6 +129,11 @@ const International = () => {
                       </ScrollLink>
                     </div>
                   ))}
+                </div>
+              </div> */}
+              <div className="col-md-6">
+                <div className="Advertisement">
+                  <Image src={Ads} alt="Radhuni" title="radhuni" unoptimized priority />
                 </div>
               </div>
 

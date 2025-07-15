@@ -4,12 +4,12 @@ import React, { useEffect, useState } from 'react';
 import getApi from '../../lib/getApi';
 import ScrollLink from '../../utils/ScrollLink';
 import Image from 'next/image';
-
+import Ads from '../../pages/assets/media/advertisement/shopnodhora-30-12-24.jpg';
 const National = () => {
   const [state, setState] = useState(null);
   const [state2, setState2] = useState([]);
   const [state3, setState3] = useState([]);
-//   const [loading, setLoading] = useState(true);
+  //   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     new Promise(resolve => setTimeout(resolve, 100))
@@ -17,13 +17,13 @@ const National = () => {
       .then((list) => {
         setState(list[0]);
         setState2(list.slice(1, 5));
-        setState3(list.slice(5, 9));
+        // setState3(list.slice(5, 9));
       })
     //   .finally(() => setLoading(false));
   }, []);
 
-//   if (loading) return <div>Loading...</div>;
-if (!state) return null;
+  //   if (loading) return <div>Loading...</div>;
+  if (!state) return null;
   return (
     <div className='container'>
       <ScrollLink href={"/national"}>
@@ -99,7 +99,7 @@ if (!state) return null;
                 </div>
               </div>
 
-              <div className="col-md-6">
+              {/* <div className="col-md-6">
                 <div className="CatListWrap2">
                   {state3.map(nc => (
                     <div className="Catlist" key={nc.ContentID}>
@@ -128,6 +128,11 @@ if (!state) return null;
                       </ScrollLink>
                     </div>
                   ))}
+                </div>
+              </div> */}
+              <div className="col-md-6">
+                <div className="Advertisement">
+                  <Image src={Ads} alt="Radhuni" title="radhuni" unoptimized priority />
                 </div>
               </div>
 

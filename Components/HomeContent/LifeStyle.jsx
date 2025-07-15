@@ -4,11 +4,13 @@ import React, { useEffect, useState } from 'react';
 import getApi from '../../lib/getApi';
 import ScrollLink from '../../utils/ScrollLink';
 import Image from 'next/image';
+import Ads from '../../pages/assets/media/advertisement/16871071593959862980.gif';
+
 
 const LifeStyle = () => {
   const [state, setState] = useState(null);
   const [state2, setState2] = useState([]);
-  const [state3, setState3] = useState([]);
+  // const [state3, setState3] = useState([]);
   // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -17,13 +19,13 @@ const LifeStyle = () => {
       .then((list) => {
         setState(list[0]);
         setState2(list.slice(1, 4));
-        setState3(list.slice(4, 7));
+        // setState3(list.slice(4, 7));
       })
     //   .finally(() => setLoading(false));
   }, []);
 
-//   if (loading) return <div>Loading...</div>;
- if (!state) return null;
+  //   if (loading) return <div>Loading...</div>;
+  if (!state) return null;
   return (
     <div className='container'>
       <ScrollLink href={"/lifeStyle"}>
@@ -99,7 +101,7 @@ const LifeStyle = () => {
                 </div>
               </div>
 
-              <div className="col-md-6">
+              {/* <div className="col-md-6">
                 <div className="CatListWrap1">
                   {state3.map(nc => (
                     <div className="Catlist" key={nc.ContentID}>
@@ -128,6 +130,11 @@ const LifeStyle = () => {
                       </ScrollLink>
                     </div>
                   ))}
+                </div>
+              </div> */}
+              <div className="col-md-6">
+                <div className="Advertisement">
+                  <Image src={Ads} alt="Radhuni" title="radhuni" unoptimized priority />
                 </div>
               </div>
             </div>

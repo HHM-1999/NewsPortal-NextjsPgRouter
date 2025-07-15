@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react';
 import getApi from '../../lib/getApi';
 import ScrollLink from '../../utils/ScrollLink';
 import Image from 'next/image';
+import Ads from '../../pages/assets/media/advertisement/16871071593959862980.gif';
+
 
 const Sports = () => {
   const [state, setState] = useState(null);
@@ -17,7 +19,7 @@ const Sports = () => {
       .then((list) => {
         setState(list[0]);
         setState2(list.slice(1, 5));
-        setState3(list.slice(5, 8));
+        // setState3(list.slice(5, 8));
       })
     
     //   .finally(() => setLoading(false));
@@ -68,7 +70,7 @@ const Sports = () => {
 
           <div className="col-md-7">
             <div className="row">
-              {[state2, state3].map((group, idx) => (
+              {[state2].map((group, idx) => (
                 <div className={`col-md-6 ${idx === 0 ? 'border-right-inner2' : ''}`} key={idx}>
                   <div className="CatListWrap1">
                     {group.map((nc) => (
@@ -101,6 +103,12 @@ const Sports = () => {
                   </div>
                 </div>
               ))}
+              <div className="col-md-6">
+                <div className="Advertisement">
+                  <Image src={Ads} alt="Radhuni" title="radhuni" unoptimized priority />
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
