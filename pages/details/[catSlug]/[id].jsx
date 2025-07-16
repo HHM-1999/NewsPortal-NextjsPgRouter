@@ -10,20 +10,47 @@ export async function getServerSideProps(context) {
   const { id } = context.params;
 
   try {
+    // Get news content details
     const response = await getApi(`content-details/${id}`);
     const data = response?.data || [];
 
-    // console.log(data);
+    if (!data || data.length === 0) {
+      return {
+        notFound: true,
+      };
+    }
+
+    const catID = data[0]?.CategoryID;
+    
+    // console.log(catID);
+
+    // Fetch latest content under category
+    const latestRes = await getApi(`category-latest-content/${catID}/4`);
+    const latestData = latestRes?.data || [];
+
+    // Fetch popular content under category
+    const popularRes = await getApi(`category-popular-content/${catID}/4`);
+    const popularData = (popularRes?.data || []).slice(0, 4);
+    const catName =data[0]?.CategoryName
+
     return {
-      props: { data },
+      props: {
+        data,
+        latestData,
+        popularData,
+        catName
+      },
     };
   } catch (error) {
     console.error("SSR ERROR for content ID", id, error?.message);
-    return <NotFound />
-
+    return {
+      notFound: true,
+    };
   }
 }
-const NewsDetailsPage = ({ data }) => {
+
+
+const NewsDetailsPage = ({ data, latestData,catName }) => {
   if (!data || data.length === 0) {
     return (
       <div className="loader-section">
@@ -79,7 +106,7 @@ const NewsDetailsPage = ({ data }) => {
       <div className="container" style={{ padding: "20px" }}>
         <DynamicMetadataClient />
         <div className="row">
-          <div className="col-lg-10 m-auto">
+          <div className="col-lg-9">
 
             {data.map((nc) => (
               <div
@@ -159,6 +186,37 @@ const NewsDetailsPage = ({ data }) => {
                 />
               </div>
             ))}
+          </div>
+          <div className="col-lg-3">
+            <div className="latest-sidebar">
+          
+               <h4 className="mb-3 mt-5"> {catName} এর সংশ্লিষ্ট খবর</h4> 
+             
+              {latestData.map((item) => (
+                <div className="row mb-3" key={item.ContentID}>
+                  <div className="col-lg-5 col-5">
+                    <Image
+                      src={`${process.env.NEXT_PUBLIC_IMG_PATH + item.ImageSmPath}`}
+                      alt={item.DetailsHeading}
+                      title={item.DetailsHeading}
+                      width={120}
+                      height={80}
+                      style={{
+                        width: "100%",
+                        height: "auto",
+                        objectFit: "cover",
+                      }}
+                    />
+                  </div>
+                  <div className="col-lg-7 col-7">
+                    <a href={`/details/${item.Slug}/${item.ContentID}`} >
+                      {item.DetailsHeading.length > 60 ? item.DetailsHeading.slice(0, 40) + "..." : item.DetailsHeading}
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+
           </div>
         </div>
       </div>
