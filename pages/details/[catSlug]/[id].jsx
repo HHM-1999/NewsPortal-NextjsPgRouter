@@ -5,6 +5,7 @@ import DynamicMetadataClient from "../../../Components/Details/DynamicMetadataCl
 import Image from "next/image";
 import SocialShare from "./SocialShare";
 import NotFound from "../../not-found";
+import Link from "next/link";
 
 export async function getServerSideProps(context) {
   const { id } = context.params;
@@ -21,7 +22,7 @@ export async function getServerSideProps(context) {
     }
 
     const catID = data[0]?.CategoryID;
-    
+
     // console.log(catID);
 
     // Fetch latest content under category
@@ -31,14 +32,15 @@ export async function getServerSideProps(context) {
     // Fetch popular content under category
     const popularRes = await getApi(`category-popular-content/${catID}/4`);
     const popularData = (popularRes?.data || []).slice(0, 4);
-    const catName =data[0]?.CategoryName
+    const catName = data[0]?.CategoryName
 
     return {
       props: {
         data,
         latestData,
         popularData,
-        catName
+        catName,
+        popularData
       },
     };
   } catch (error) {
@@ -50,7 +52,7 @@ export async function getServerSideProps(context) {
 }
 
 
-const NewsDetailsPage = ({ data, latestData,catName }) => {
+const NewsDetailsPage = ({ data, latestData, catName, popularData }) => {
   if (!data || data.length === 0) {
     return (
       <div className="loader-section">
@@ -105,10 +107,12 @@ const NewsDetailsPage = ({ data, latestData,catName }) => {
 
       <div className="container" style={{ padding: "20px" }}>
         <DynamicMetadataClient />
-        <div className="row">
-          <div className="col-lg-9">
+        {data.map((nc) => (
+          <div className="row">
 
-            {data.map((nc) => (
+            <div className="col-lg-8">
+
+
               <div
                 className="newsDetail"
                 key={nc.ContentID}
@@ -185,40 +189,74 @@ const NewsDetailsPage = ({ data, latestData,catName }) => {
                   style={{ marginTop: "20px" }}
                 />
               </div>
-            ))}
-          </div>
-          <div className="col-lg-3">
-            <div className="latest-sidebar">
-          
-               <h4 className="mb-3 mt-5"> {catName} এর সংশ্লিষ্ট খবর</h4> 
-             
-              {latestData.map((item) => (
-                <div className="row mb-3" key={item.ContentID}>
-                  <div className="col-lg-5 col-5">
-                    <Image
-                      src={`${process.env.NEXT_PUBLIC_IMG_PATH + item.ImageSmPath}`}
-                      alt={item.DetailsHeading}
-                      title={item.DetailsHeading}
-                      width={120}
-                      height={80}
-                      style={{
-                        width: "100%",
-                        height: "auto",
-                        objectFit: "cover",
-                      }}
-                    />
-                  </div>
-                  <div className="col-lg-7 col-7">
-                    <a href={`/details/${item.Slug}/${item.ContentID}`} >
-                      {item.DetailsHeading.length > 60 ? item.DetailsHeading.slice(0, 40) + "..." : item.DetailsHeading}
-                    </a>
-                  </div>
-                </div>
-              ))}
+
+            </div>
+            <div className="col-lg-4">
+              {/* latest news  */}
+              <div className="latest-sidebar">
+                <h4 className="mb-3 mt-5"> {catName} এর সর্বশেষ খবর</h4>
+                {latestData.map((item) => (
+                  <Link href={`/details/${item.Slug}/${item.ContentID}`} >
+                    <div className="row mb-3" key={item.ContentID}>
+                      <div className="col-lg-5 col-5">
+                        <Image
+                          src={`${process.env.NEXT_PUBLIC_IMG_PATH + item.ImageSmPath}`}
+                          alt={item.DetailsHeading}
+                          title={item.DetailsHeading}
+                          width={120}
+                          height={80}
+                          style={{
+                            width: "100%",
+                            height: "auto",
+                            objectFit: "cover",
+                          }}
+                        />
+                      </div>
+                      <div className="col-lg-7 col-7">
+                        {/* <Link href={`/details/${item.Slug}/${item.ContentID}`} > */}
+                        {item.DetailsHeading.length > 60 ? item.DetailsHeading.slice(0, 40) + "..." : item.DetailsHeading}
+                        {/* </Link> */}
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+              {/* popular news */}
+              <div className="latest-sidebar">
+
+                <h4 className="mb-3 mt-5"> {catName} এর সর্বশেষ খবর</h4>
+
+                {popularData.map((item) => (
+                  <Link href={`/details/${item.Slug}/${item.ContentID}`} >
+                    <div className="row mb-3" key={item.ContentID}>
+                      <div className="col-lg-5 col-5">
+                        <Image
+                          src={`${process.env.NEXT_PUBLIC_IMG_PATH + item.ImageSmPath}`}
+                          alt={item.DetailsHeading}
+                          title={item.DetailsHeading}
+                          width={120}
+                          height={80}
+                          style={{
+                            width: "100%",
+                            height: "auto",
+                            objectFit: "cover",
+                          }}
+                        />
+                      </div>
+                      <div className="col-lg-7 col-7">
+                        {/* <Link href={`/details/${item.Slug}/${item.ContentID}`} > */}
+                        {item.DetailsHeading.length > 60 ? item.DetailsHeading.slice(0, 40) + "..." : item.DetailsHeading}
+                        {/* </Link> */}
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
             </div>
 
           </div>
-        </div>
+        ))}
       </div>
     </>
   );
