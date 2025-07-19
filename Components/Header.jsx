@@ -1,12 +1,12 @@
 "use client";
-import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
-import Logo from '../pages/assets/media/common/logo2.png';
 import Image from 'next/image';
-import { RiFacebookFill, RiLinkedinBoxFill } from "react-icons/ri";
-import { FaXTwitter, FaWhatsapp } from "react-icons/fa6";
-import { FaInstagram } from "react-icons/fa";
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { AiFillYoutube } from "react-icons/ai";
+import { FaInstagram } from "react-icons/fa";
+import { FaWhatsapp, FaXTwitter } from "react-icons/fa6";
+import { RiFacebookFill, RiLinkedinBoxFill } from "react-icons/ri";
+import Logo from '../pages/assets/media/common/logo2.png';
 
 const Header = () => {
     const [isSticky, setIsSticky] = useState(false);
@@ -81,10 +81,10 @@ const Header = () => {
                 </div>
             </div>
 
-          
-                <div className={isSticky ? "sticky-navbar shadow-sm" : ""}>
-                    {/* Logo center */}
-                    <div className="menuArea">
+
+            <div className={isSticky ? "sticky-navbar shadow-sm" : ""}>
+                {/* Logo center */}
+                <div className="menuArea">
                     <a href="/" className='Logo-area'>
                         <Image
                             src={Logo}
@@ -111,7 +111,54 @@ const Header = () => {
                         </button> */}
 
 
-                            <ul className="navbar-nav">
+                        <ul className="navbar-nav">
+                            <button className="btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                                <span className="navbar-toggler-icon"><i className="fa-solid fa-bars"></i></span>
+
+                            </button>
+                            {[
+                                { path: "/national", label: "জাতীয়" },
+                                { path: "/international", label: "আন্তর্জাতিক" },
+                                { path: "/sports", label: "খেলাধুলা" },
+                                { path: "/finance-and-trade", label: "অর্থ-বাণিজ্য" },
+                                { path: "/entertainment", label: "বিনোদন" },
+                                { path: "/feature", label: "ফিচার" },
+                                { path: "/education", label: "শিক্ষা" },
+                                { path: "/lifestyle", label: "লাইফস্টাইল" },
+                                { path: "/archieves", label: "আর্কাইভ" },
+                            ].map((item, idx) => (
+                                <li className="nav-item" key={idx}>
+                                    <Link
+                                        className="nav-link"
+                                        href={item.path}
+                                        prefetch={false}
+                                        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                                    >
+                                        {item.label}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+
+                    </nav>
+
+
+                    <div className="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+                        <div className="offcanvas-header">
+                            <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div className="offcanvas-body">
+                            <a href="/" className='Logo-area'>
+                                <Image
+                                    src={Logo}
+                                    alt="News Portal.com"
+                                    title="News Portal.com"
+                                    className="img-fluid"
+                                    style={{ width: "270px" }}
+                                    priority
+                                />
+                            </a>
+                            <ul className="navbar-nav2">
                                 {[
                                     { path: "/national", label: "জাতীয়" },
                                     { path: "/international", label: "আন্তর্জাতিক" },
@@ -135,10 +182,9 @@ const Header = () => {
                                     </li>
                                 ))}
                             </ul>
-                      
-                    </nav>
+                        </div>
+                    </div>
 
-                    
                 </div>
             </div>
         </>

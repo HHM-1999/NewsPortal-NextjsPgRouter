@@ -295,7 +295,8 @@ label {
   display: flex !important;
   justify-content: center !important;
 }
-.navbar{
+
+.navbar {
   display: block;
 }
 
@@ -310,7 +311,20 @@ label {
   padding: 0 25px;
 }
 
+.menuArea .navbar-nav2 {
+  display: block;
+}
+
 .menuArea .navbar-light .navbar-nav .nav-link {
+  color: #121212;
+  padding: 8px 8px !important;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 500;
+  display: block;
+}
+
+.menuArea .navbar-light .navbar-nav2 .nav-link {
   color: #121212;
   padding: 8px 8px !important;
   font-size: 18px;
@@ -328,7 +342,18 @@ label {
   padding: 0 10px;
 }
 
+.navbar-nav2 .nav-item {
+  padding: 8px 10px;
+  list-style: none;
+}
+
 .navbar-nav .nav-item .nav-link {
+  font-family: var(--font-tiro-bangla);
+  font-size: 17px;
+}
+
+
+.navbar-nav2 .nav-item .nav-link {
   font-family: var(--font-tiro-bangla);
   font-size: 17px;
 }
@@ -359,79 +384,81 @@ label {
   background-color: #f7f7f7;
   padding: 0 8px;
 }
+
 .DSocialLink {
-	margin-top: 10px;
+  margin-top: 10px;
 }
+
 .DSocialLink ul li a .icon .DSocialLink ul {
-	padding: 0;
-	margin: 0
+  padding: 0;
+  margin: 0
 }
 
 .DSocialLink ul li {
-	list-style: none;
-	display: inline;
+  list-style: none;
+  display: inline;
 }
 
 .DSocialLink ul li a .icon {
-	font-size: 15px;
-	width: 27px;
-	height: 27px;
-	text-align: center;
-	line-height: 27px;
-	border-radius: 50px;
-	margin-right: 3px;
+  font-size: 15px;
+  width: 27px;
+  height: 27px;
+  text-align: center;
+  line-height: 27px;
+  border-radius: 50px;
+  margin-right: 3px;
 }
 
 .DSocialLink ul li .icon.fa-x-twitter {
-	background: #141414;
-	color: #fff;
-	padding: 5px 0;
+  background: #141414;
+  color: #fff;
+  padding: 5px 0;
 }
 
 .DSocialLink ul li .icon.fa-x-twitter:hover {
-	background: #d4d6df;
-	color: #000;
+  background: #d4d6df;
+  color: #000;
 }
 
 .DSocialLink ul li .icon.fa-whatsapp {
-	background: #25D366;
-	color: #fff;
-	padding: 5px 0;
+  background: #25D366;
+  color: #fff;
+  padding: 5px 0;
 }
 
 .DSocialLink ul li .icon.fa-instagram {
-	background: #d6249f;
-	background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-	color: #fff;
-	padding: 5px 0;
+  background: #d6249f;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  color: #fff;
+  padding: 5px 0;
 }
 
 .DSocialLink ul li .icon:hover {
-	background: #d4d6df;
-	color: #000;
+  background: #d4d6df;
+  color: #000;
 }
 
 .DSocialLink ul li .icon.fa-facebook-f {
-	background: #264586;
-	color: #fff;
-	padding: 5px 0;
+  background: #264586;
+  color: #fff;
+  padding: 5px 0;
 }
 
 .DSocialLink ul li .icon.fa-facebook-f:hover {
-	background: #d4d6df;
-	color: #000;
+  background: #d4d6df;
+  color: #000;
 }
 
 .DSocialLink ul li .icon.fa-youtube {
-	background: #D82924;
-	color: #fff;
-	padding: 5px 0;
+  background: #D82924;
+  color: #fff;
+  padding: 5px 0;
 }
 
 .DSocialLink ul li .icon.fa-linkedin {
-	background: #3771eb;
-	color: #fff;
-	padding: 5px 0;
+  background: #3771eb;
+  color: #fff;
+  padding: 5px 0;
 }
 
 /* Loader  */
@@ -879,8 +906,9 @@ figcaption {
   transition: opacity 0.5s ease-in-out;
   /* Smooth transition */
 }
+
 /* latest cat news in details page */
-.latest-sidebar h4{
+.latest-sidebar h4 {
   font-size: 20px;
 }
 
@@ -942,13 +970,25 @@ figcaption {
 }
 
 @media screen and (max-width:768px) {
-  .Dheader {
+
+  /* .Dheader {
     display: none;
   }
-  .navbar{
+
+  .navbar {
+    display: none;
+  } */
+  .menuArea .navbar-nav li {
     display: none;
   }
-  .card-content{
+
+  .navbar-nav .btn.btn-dark {
+    width: 50%;
+    height: 50px;
+    margin: 0 auto;
+  }
+
+  .card-content {
     margin-bottom: 10px;
   }
 
@@ -956,6 +996,7 @@ figcaption {
     display: flex;
     justify-content: center;
   }
+
   .CatListWrap {
     padding-top: 20px;
   }
