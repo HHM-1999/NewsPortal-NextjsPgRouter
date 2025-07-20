@@ -109,7 +109,7 @@ const NewsDetailsPage = ({ data, latestData, catName, popularData }) => {
         <DynamicMetadataClient />
         {data.map((nc) => (
           <div className="row BorderBottom" key={nc.ContentID}>
-            <div className="col-lg-8">
+            <div className="col-lg-8 col-12" >
               <div
                 className="newsDetail"
                 key={nc.ContentID}
@@ -188,7 +188,7 @@ const NewsDetailsPage = ({ data, latestData, catName, popularData }) => {
               </div>
 
             </div>
-            <div className="col-lg-4">
+            <div className="col-lg-4 col-12">
               {/* latest news  */}
               <div className="latest-sidebar">
                 <h4 className="mb-3 mt-5"> {catName} এর সর্বশেষ খবর</h4>
