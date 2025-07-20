@@ -732,6 +732,7 @@ label {
 
 .content-Heading {
   font-size: 30px;
+  line-height: 36px;
   color: #1e3a8a;
   font-family: var(--font-tiro-bangla);
   margin-bottom: 10px;

@@ -7,6 +7,11 @@ export default function Document() {
         <Html >
             <Head >
                 <link rel="icon" href="/favicon.ico" />
+                <style data-next-hide-fouc="true"></style>
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta name="description" content="News Portal - Stay updated with the latest news in Bangladesh and around the world. Explore national, international, sports, entertainment, and feature news in Bengali." />
+                <meta name="keywords" content="News, Bangladesh, International News, Sports News, Entertainment News, Feature News, Bengali News" />
+                <meta name="author" content="News Portal Team" />
                 <meta name="robots" content="noindex, nofollow" />
 
                 <link
@@ -16,6 +21,7 @@ export default function Document() {
                     crossOrigin="anonymous"
                 />
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerPolicy="no-referrer" />
+
             </Head>
             <body>
                 <Main />
