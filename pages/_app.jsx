@@ -1,10 +1,9 @@
 
-import "./globals.css";
-import Header from '../Components/Header'
 import { Tiro_Bangla } from 'next/font/google';
 import Footer from "../Components/Footer";
-import Head from "next/head";
-import BackToTopButton from '../Components/common/BackToTopButton'
+import Header from '../Components/Header';
+import BackToTopButton from '../Components/common/BackToTopButton';
+import "./globals.css";
 const tiroBangla = Tiro_Bangla({
     variable: "--font-tiro-bangla",
     subsets: ["bengali"],
@@ -14,9 +13,9 @@ export default function App({ Component, pageProps }) {
     return (
 
         <main className={`${tiroBangla.variable}`} >
-            <Head>
+            <head>
                 <title>News Portal</title>
-            </Head>
+            </head>
             <Header />
             <Component {...pageProps} />
             <Footer />

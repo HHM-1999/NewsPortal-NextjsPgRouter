@@ -10,6 +10,14 @@ import Logo from '../pages/assets/media/common/logo2.png';
 
 const Header = () => {
     const [isSticky, setIsSticky] = useState(false);
+    const closeOffcanvas = () => {
+        const offcanvasElement = document.getElementById('staticBackdrop');
+        const offcanvasInstance = window.bootstrap?.Offcanvas.getInstance(offcanvasElement);
+        if (offcanvasInstance) {
+            offcanvasInstance.hide();
+        }
+    };
+
 
     const today = new Date().toLocaleDateString('bn-BD', {
         weekday: 'long',
@@ -117,9 +125,9 @@ const Header = () => {
 
                             {/* </button> */}
                             {[
-                                { path: "/national", label: "জাতীয়" },
-                                { path: "/international", label: "আন্তর্জাতিক" },
-                                { path: "/sports", label: "খেলাধুলা" },
+                                { path: "/national", label: "জাতীয়", target: "_self" },
+                                { path: "/international", label: "আন্তর্জাতিক", target: "_self" },
+                                { path: "/sports", label: "খেলাধুলা", target: "_self" },
                                 { path: "/finance-and-trade", label: "অর্থ-বাণিজ্য" },
                                 { path: "/entertainment", label: "বিনোদন" },
                                 { path: "/feature", label: "ফিচার" },
@@ -127,7 +135,7 @@ const Header = () => {
                                 { path: "/lifestyle", label: "লাইফস্টাইল" },
                                 { path: "/archieves", label: "আর্কাইভ" },
                             ].map((item, idx) => (
-                                <li className="nav-item" key={idx}>
+                                <li className="nav-item" target="_self" aria-label="" key={idx} >
                                     <Link
                                         className="nav-link"
                                         href={item.path}
@@ -175,7 +183,10 @@ const Header = () => {
                                             className="nav-link"
                                             href={item.path}
                                             prefetch={false}
-                                            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                                            onClick={() => {
+                                                closeOffcanvas();
+                                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                                            }}
                                         >
                                             {item.label}
                                         </Link>
