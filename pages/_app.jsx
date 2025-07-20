@@ -1,5 +1,6 @@
 
 import { Tiro_Bangla } from 'next/font/google';
+import Head from 'next/head';
 import Footer from "../Components/Footer";
 import Header from '../Components/Header';
 import BackToTopButton from '../Components/common/BackToTopButton';
@@ -13,9 +14,9 @@ export default function App({ Component, pageProps }) {
     return (
 
         <main className={`${tiroBangla.variable}`} >
-            <head>
+            <Head>
                 <title>News Portal</title>
-            </head>
+            </Head>
             <Header />
             <Component {...pageProps} />
             <Footer />
