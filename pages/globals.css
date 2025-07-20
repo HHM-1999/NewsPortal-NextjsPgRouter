@@ -300,6 +300,10 @@ label {
   display: block;
 }
 
+.offcanvas {
+  z-index: 999999;
+}
+
 /* .collapse:not(.show) {
   display: flex;
   justify-content: center;
