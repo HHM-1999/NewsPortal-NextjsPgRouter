@@ -1,10 +1,10 @@
 import Head from "next/head";
-import getApi from "../../../lib/getApi";
 import DynamicMetadataClient from "../../../Components/Details/DynamicMetadataClient"; // make sure it's client if needed
+import getApi from "../../../lib/getApi";
 // import SkeletonSection from "../../../Components/common/SkeletonSection";
 import Image from "next/image";
 import SocialShare from "./SocialShare";
-import NotFound from "../../not-found";
+// import NotFound from "../../not-found";
 import Link from "next/link";
 
 export async function getServerSideProps(context) {
@@ -108,11 +108,8 @@ const NewsDetailsPage = ({ data, latestData, catName, popularData }) => {
       <div className="container" style={{ padding: "20px" }}>
         <DynamicMetadataClient />
         {data.map((nc) => (
-          <div className="row">
-
+          <div className="row BorderBottom" key={nc.ContentID}>
             <div className="col-lg-8">
-
-
               <div
                 className="newsDetail"
                 key={nc.ContentID}

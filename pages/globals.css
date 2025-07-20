@@ -708,10 +708,13 @@ label {
 
 
 /* details page */
+.BorderBottom {
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
 .newsDetail {
   margin-top: 30px;
-  border-bottom: 2px solid #eee;
-  padding-top: 10px;
 }
 
 .form-section button {
