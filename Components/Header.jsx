@@ -112,10 +112,10 @@ const Header = () => {
 
 
                         <ul className="navbar-nav">
-                            <button className="btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
-                                <span className="navbar-toggler-icon"><i className="fa-solid fa-bars"></i></span>
+                            {/* <button type="button" > */}
+                            <span className='menu-bar' data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop"><i className="fa-solid fa-bars"></i></span>
 
-                            </button>
+                            {/* </button> */}
                             {[
                                 { path: "/national", label: "জাতীয়" },
                                 { path: "/international", label: "আন্তর্জাতিক" },
@@ -143,7 +143,7 @@ const Header = () => {
                     </nav>
 
 
-                    <div className="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+                    <div className="offcanvas offcanvas-start" data-bs-backdrop="static" tabIndex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
                         <div className="offcanvas-header">
                             <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>

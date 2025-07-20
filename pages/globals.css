@@ -315,6 +315,12 @@ label {
   display: block;
 }
 
+.menu-bar {
+  font-size: 18px;
+  margin: 8px;
+  cursor: pointer;
+}
+
 .menuArea .navbar-light .navbar-nav .nav-link {
   color: #121212;
   padding: 8px 8px !important;
@@ -978,6 +984,13 @@ figcaption {
   .navbar {
     display: none;
   } */
+  .menu-bar {
+    font-size: 18px;
+    margin: 8px;
+    cursor: pointer;
+    margin: 0;
+  }
+
   .menuArea .navbar-nav li {
     display: none;
   }
