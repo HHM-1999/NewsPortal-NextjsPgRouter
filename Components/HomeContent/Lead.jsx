@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import getApi from '../../lib/getApi';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import getApi from '../../lib/getApi';
 import Ads from '../../pages/assets/media/advertisement/13982910857184178936.gif';
 
 const Lead = () => {
@@ -34,12 +34,12 @@ const Lead = () => {
                     <div className="DImageResize">
                       <Image
                         src={process.env.NEXT_PUBLIC_IMG_PATH + leadData.ImageBgPath}
-                        alt={leadData.DetailsHeading}
-                        title={leadData.DetailsHeading}
                         priority
                         style={{ width: '100%', height: 'auto', position: 'relative' }}
                         width={800}
                         height={450}
+                        alt={leadData.DetailsHeading}
+                        title={leadData.DetailsHeading}
                       />
                     </div>
                     <div className="caption">
@@ -59,12 +59,12 @@ const Lead = () => {
                             <picture>
                               <Image
                                 src={process.env.NEXT_PUBLIC_IMG_PATH + nc.ImageSmPath}
-                                alt={nc.DetailsHeading}
-                                title={nc.DetailsHeading}
                                 style={{ width: '100%', height: 'auto', position: 'relative' }}
                                 priority
                                 width={120}
                                 height={67}
+                                alt={nc.DetailsHeading}
+                                title={nc.DetailsHeading}
                               />
                             </picture>
                           </div>

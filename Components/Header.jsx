@@ -10,14 +10,6 @@ import Logo from '../pages/assets/media/common/logo2.png';
 
 const Header = () => {
     const [isSticky, setIsSticky] = useState(false);
-    const closeOffcanvas = () => {
-        const offcanvasElement = document.getElementById('staticBackdrop');
-        const offcanvasInstance = window.bootstrap?.Offcanvas.getInstance(offcanvasElement);
-        if (offcanvasInstance) {
-            offcanvasInstance.hide();
-        }
-    };
-
 
     const today = new Date().toLocaleDateString('bn-BD', {
         weekday: 'long',
@@ -121,13 +113,13 @@ const Header = () => {
 
                         <ul className="navbar-nav">
                             {/* <button type="button" > */}
-                            <span className='menu-bar' data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop"><i className="fa-solid fa-bars"></i></span>
+                            <li className='menu-bar' data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop"><i className="fa-solid fa-bars"></i></li>
 
                             {/* </button> */}
                             {[
                                 { path: "/national", label: "জাতীয়", target: "_self" },
                                 { path: "/international", label: "আন্তর্জাতিক", target: "_self" },
-                                { path: "/sports", label: "খেলাধুলা", target: "_self" },
+                                { path: "/sports", label: "খেলাধুলা" },
                                 { path: "/finance-and-trade", label: "অর্থ-বাণিজ্য" },
                                 { path: "/entertainment", label: "বিনোদন" },
                                 { path: "/feature", label: "ফিচার" },
@@ -183,10 +175,7 @@ const Header = () => {
                                             className="nav-link"
                                             href={item.path}
                                             prefetch={false}
-                                            onClick={() => {
-                                                closeOffcanvas();
-                                                window.scrollTo({ top: 0, behavior: 'smooth' });
-                                            }}
+                                            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                                         >
                                             {item.label}
                                         </Link>

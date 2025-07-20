@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
-import Link from "next/link";
-import postApi from "../../lib/postApi";
 import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import postApi from "../../lib/postApi";
 
 export default function ArchiveClient({ initialData = [], initialCatList = [] }) {
     const [archivedata, setArchivedata] = useState(initialData);
@@ -17,25 +17,25 @@ export default function ArchiveClient({ initialData = [], initialCatList = [] })
     const fetchArchive = (params, append = false) => {
         setLoading(true);
         const adjustedParams = { ...params };
-    
+
         // Adjust end date for full day
         if (adjustedParams.end_date) {
             const end = new Date(adjustedParams.end_date);
             end.setHours(23, 59, 59, 999);
             adjustedParams.end_date = end.toISOString();
         }
-    
+
         postApi("archive", adjustedParams)
             .then((res) => {
                 let newData = res?.data || [];
-    
+
                 // Filter by date range (safety)
                 if (adjustedParams.start_date) {
                     const startTime = new Date(adjustedParams.start_date).getTime();
                     const endTime = adjustedParams.end_date
                         ? new Date(adjustedParams.end_date).getTime()
                         : null;
-    
+
                     newData = newData.filter((item) => {
                         const itemTime = new Date(item.created_at).getTime();
                         return endTime
@@ -43,7 +43,7 @@ export default function ArchiveClient({ initialData = [], initialCatList = [] })
                             : itemTime >= startTime;
                     });
                 }
-    
+
                 if (append) {
                     setArchivedata((prev) => [...prev, ...newData]);
                     setOffset((prev) => prev + newData.length);
@@ -51,7 +51,7 @@ export default function ArchiveClient({ initialData = [], initialCatList = [] })
                     setArchivedata(newData);
                     setOffset(newData.length);
                 }
-    
+
                 setHasMore(newData.length === 12 && newData.length > 0);
             })
             .catch((err) => {
@@ -61,7 +61,7 @@ export default function ArchiveClient({ initialData = [], initialCatList = [] })
                 setLoading(false);
             });
     };
-    
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -166,6 +166,7 @@ export default function ArchiveClient({ initialData = [], initialCatList = [] })
                                             height={250}
                                             className="card-img-top img-fluid"
                                             alt={nc.DetailsHeading}
+                                            title={nc.DetailsHeading}
                                         />
                                         <div className="card-body">
                                             <h5>{nc.DetailsHeading}</h5>

@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const SpecialLead = () => {
   const [leadData, setLeadData] = useState([]);
-//   const [loading, setLoading] = useState(true);
+  //   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     new Promise((resolve) => setTimeout(resolve, 100))
@@ -14,11 +14,11 @@ const SpecialLead = () => {
       .then((list) => {
         setLeadData(list.slice(0, 4));
       })
-    //   .finally(() => setLoading(false));
+
   }, []);
 
-//   if (loading) return <div>Loading...</div>;
-if (!leadData) return null;
+  //   if (loading) return <div>Loading...</div>;
+  if (!leadData) return null;
   return (
     <div className="container">
       <div className="row">

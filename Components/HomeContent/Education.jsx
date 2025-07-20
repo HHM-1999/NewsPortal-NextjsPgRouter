@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import getApi from '../../lib/getApi';
-import ScrollLink from '../../utils/ScrollLink';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import getApi from '../../lib/getApi';
 import Ads from '../../pages/assets/media/advertisement/shopnodhora-30-12-24.jpg';
+import ScrollLink from '../../utils/ScrollLink';
 
 
 const Education = () => {
@@ -45,13 +45,13 @@ const Education = () => {
                   <picture>
                     <Image
                       src={process.env.NEXT_PUBLIC_IMG_PATH + state.ImageBgPath}
-                      alt={state.DetailsHeading}
-                      title={state.DetailsHeading}
                       priority
                       placeholder={undefined}
                       style={{ width: '100%', height: 'auto', position: "relative" }}
                       width={800}
                       height={450}
+                      alt={state.DetailsHeading}
+                      title={state.DetailsHeading}
                     />
                   </picture>
                   {(state.ShowVideo === 1 || state.VideoID !== null) && (
@@ -77,12 +77,12 @@ const Education = () => {
                             <picture>
                               <Image
                                 src={process.env.NEXT_PUBLIC_IMG_PATH + nc.ImageSmPath}
-                                alt={nc.DetailsHeading}
-                                title={nc.DetailsHeading}
                                 style={{ width: '100%', height: 'auto', position: "relative" }}
                                 priority
                                 width={120}
                                 height={67}
+                                alt={nc.DetailsHeading}
+                                title={nc.DetailsHeading}
                               />
                             </picture>
                             {(nc.ShowVideo === 1 || nc.VideoID !== null) && (
@@ -98,37 +98,6 @@ const Education = () => {
                   ))}
                 </div>
               </div>
-              {/* <div className="col-md-6">
-                <div className="CatListWrap2">
-                  {state3.map((nc) => (
-                    <div className="Catlist" key={nc.ContentID}>
-                      <ScrollLink href={"/details/" + nc.Slug + "/" + nc.ContentID}>
-                        <div className="row">
-                          <div className="col-md-5 col-5">
-                            <picture>
-                              <Image
-                                src={process.env.NEXT_PUBLIC_IMG_PATH + nc.ImageSmPath}
-                                alt={nc.DetailsHeading}
-                                title={nc.DetailsHeading}
-                                style={{ width: '100%', height: 'auto', position: "relative" }}
-                                priority
-                                width={120}
-                                height={67}
-                              />
-                            </picture>
-                            {(nc.ShowVideo === 1 || nc.VideoID !== null) && (
-                              <span className="play-btn"><i className="fas fa-play"></i></span>
-                            )}
-                          </div>
-                          <div className="col-md-7 col-7">
-                            <h3 className="Title">{nc.DetailsHeading}</h3>
-                          </div>
-                        </div>
-                      </ScrollLink>
-                    </div>
-                  ))}
-                </div>
-              </div> */}
               <div className="col-md-6">
                 <div className="Advertisement">
                   <Image src={Ads} alt="Radhuni" title="radhuni" unoptimized priority />

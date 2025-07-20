@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import getApi from '../../lib/getApi';
 import ScrollLink from '../../utils/ScrollLink';
-import Image from 'next/image';
 
 const Finance = () => {
   const [state, setState] = useState(null);
   const [state2, setState2] = useState([]);
   const [state3, setState3] = useState([]);
-//   const [loading, setLoading] = useState(true);
+  //   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // simulate delay with Promise + setTimeout
@@ -21,7 +21,7 @@ const Finance = () => {
     //   .finally(() => setLoading(false));
   }, []);
   if (!state) return null;
-//   if (loading) return <div>Loading...</div>;
+  //   if (loading) return <div>Loading...</div>;
 
   return (
     <div className='container'>
@@ -44,12 +44,12 @@ const Finance = () => {
                   <picture>
                     <Image
                       src={process.env.NEXT_PUBLIC_IMG_PATH + state.ImageBgPath}
-                      alt={state.DetailsHeading}
-                      title={state.DetailsHeading}
                       priority
                       style={{ width: '100%', height: 'auto', position: "relative" }}
                       width={800}
                       height={450}
+                      alt={state.DetailsHeading}
+                      title={state.DetailsHeading}
                     />
                   </picture>
                   {(state.ShowVideo === 1 || state.VideoID !== null) && (
@@ -75,12 +75,12 @@ const Finance = () => {
                             <picture>
                               <Image
                                 src={process.env.NEXT_PUBLIC_IMG_PATH + nc.ImageSmPath}
-                                alt={nc.DetailsHeading}
-                                title={nc.DetailsHeading}
                                 style={{ width: '100%', height: 'auto', position: "relative" }}
                                 priority
                                 width={120}
                                 height={67}
+                                alt={nc.DetailsHeading}
+                                title={nc.DetailsHeading}
                               />
                             </picture>
                             {(nc.ShowVideo === 1 || nc.VideoID !== null) && (
@@ -106,12 +106,12 @@ const Finance = () => {
                             <picture>
                               <Image
                                 src={process.env.NEXT_PUBLIC_IMG_PATH + nc.ImageSmPath}
-                                alt={nc.DetailsHeading}
-                                title={nc.DetailsHeading}
                                 style={{ width: '100%', height: 'auto', position: "relative" }}
                                 priority
                                 width={120}
                                 height={67}
+                                alt={nc.DetailsHeading}
+                                title={nc.DetailsHeading}
                               />
                             </picture>
                             {(nc.ShowVideo === 1 || nc.VideoID !== null) && (

@@ -166,8 +166,6 @@ const NewsDetailsPage = ({ data, latestData, catName, popularData }) => {
                   <picture>
                     <Image
                       src={`${process.env.NEXT_PUBLIC_IMG_PATH + nc.ImageBgPath}`}
-                      alt={nc.DetailsHeading}
-                      title={nc.DetailsHeading}
                       width={400}
                       height={250}
                       style={{
@@ -176,6 +174,8 @@ const NewsDetailsPage = ({ data, latestData, catName, popularData }) => {
                         objectFit: "cover",
                         position: "relative",
                       }}
+                      alt={nc.DetailsHeading}
+                      title={nc.DetailsHeading}
                     />
                   </picture>
                 )}
@@ -198,8 +198,6 @@ const NewsDetailsPage = ({ data, latestData, catName, popularData }) => {
                       <div className="col-lg-5 col-5">
                         <Image
                           src={`${process.env.NEXT_PUBLIC_IMG_PATH + item.ImageSmPath}`}
-                          alt={item.DetailsHeading}
-                          title={item.DetailsHeading}
                           width={120}
                           height={80}
                           style={{
@@ -207,6 +205,8 @@ const NewsDetailsPage = ({ data, latestData, catName, popularData }) => {
                             height: "auto",
                             objectFit: "cover",
                           }}
+                          alt={item.DetailsHeading}
+                          title={item.DetailsHeading}
                         />
                       </div>
                       <div className="col-lg-7 col-7">
@@ -229,8 +229,6 @@ const NewsDetailsPage = ({ data, latestData, catName, popularData }) => {
                       <div className="col-lg-5 col-5">
                         <Image
                           src={`${process.env.NEXT_PUBLIC_IMG_PATH + item.ImageSmPath}`}
-                          alt={item.DetailsHeading}
-                          title={item.DetailsHeading}
                           width={120}
                           height={80}
                           style={{
@@ -238,6 +236,8 @@ const NewsDetailsPage = ({ data, latestData, catName, popularData }) => {
                             height: "auto",
                             objectFit: "cover",
                           }}
+                          alt={item.DetailsHeading}
+                          title={item.DetailsHeading}
                         />
                       </div>
                       <div className="col-lg-7 col-7">

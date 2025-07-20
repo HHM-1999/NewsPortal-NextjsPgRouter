@@ -1,17 +1,15 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import getApi from '../../lib/getApi';
-import ScrollLink from '../../utils/ScrollLink';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import getApi from '../../lib/getApi';
 import Ads from '../../pages/assets/media/advertisement/16871071593959862980.gif';
+import ScrollLink from '../../utils/ScrollLink';
 
 
 const LifeStyle = () => {
   const [state, setState] = useState(null);
   const [state2, setState2] = useState([]);
-  // const [state3, setState3] = useState([]);
-  // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     new Promise(resolve => setTimeout(resolve, 100))
@@ -19,13 +17,12 @@ const LifeStyle = () => {
       .then((list) => {
         setState(list[0]);
         setState2(list.slice(1, 4));
-        // setState3(list.slice(4, 7));
       })
-    //   .finally(() => setLoading(false));
+
   }, []);
 
-  //   if (loading) return <div>Loading...</div>;
   if (!state) return null;
+
   return (
     <div className='container'>
       <ScrollLink href={"/lifeStyle"}>
@@ -47,12 +44,12 @@ const LifeStyle = () => {
                   <picture>
                     <Image
                       src={process.env.NEXT_PUBLIC_IMG_PATH + state.ImageBgPath}
-                      alt={state.DetailsHeading}
-                      title={state.DetailsHeading}
                       priority
                       style={{ width: '100%', height: 'auto', position: "relative" }}
                       width={800}
                       height={450}
+                      alt={state.DetailsHeading}
+                      title={state.DetailsHeading}
                     />
                   </picture>
                   {(state.ShowVideo === 1 || state.VideoID !== null) && (
@@ -79,12 +76,12 @@ const LifeStyle = () => {
                             <picture>
                               <Image
                                 src={process.env.NEXT_PUBLIC_IMG_PATH + nc.ImageSmPath}
-                                alt={nc.DetailsHeading}
-                                title={nc.DetailsHeading}
                                 style={{ width: '100%', height: 'auto', position: "relative" }}
                                 priority
                                 width={120}
                                 height={67}
+                                alt={nc.DetailsHeading}
+                                title={nc.DetailsHeading}
                               />
                             </picture>
                             {(nc.ShowVideo === 1 || nc.VideoID !== null) && (
@@ -101,37 +98,6 @@ const LifeStyle = () => {
                 </div>
               </div>
 
-              {/* <div className="col-md-6">
-                <div className="CatListWrap1">
-                  {state3.map(nc => (
-                    <div className="Catlist" key={nc.ContentID}>
-                      <ScrollLink href={`/details/${nc.Slug}/${nc.ContentID}`}>
-                        <div className="row">
-                          <div className="col-md-7 col-7">
-                            <picture>
-                              <Image
-                                src={process.env.NEXT_PUBLIC_IMG_PATH + nc.ImageSmPath}
-                                alt={nc.DetailsHeading}
-                                title={nc.DetailsHeading}
-                                style={{ width: '100%', height: 'auto', position: "relative" }}
-                                priority
-                                width={120}
-                                height={67}
-                              />
-                            </picture>
-                            {(nc.ShowVideo === 1 || nc.VideoID !== null) && (
-                              <span className="play-btn"><i className="fas fa-play"></i></span>
-                            )}
-                          </div>
-                          <div className="col-md-5 col-5">
-                            <h3 className="Title">{nc.DetailsHeading}</h3>
-                          </div>
-                        </div>
-                      </ScrollLink>
-                    </div>
-                  ))}
-                </div>
-              </div> */}
               <div className="col-md-6">
                 <div className="Advertisement">
                   <Image src={Ads} alt="Radhuni" title="radhuni" unoptimized priority />

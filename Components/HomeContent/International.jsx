@@ -1,16 +1,14 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import getApi from '../../lib/getApi';
-import ScrollLink from '../../utils/ScrollLink';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import getApi from '../../lib/getApi';
 import Ads from '../../pages/assets/media/advertisement/13982910857184178936.gif';
+import ScrollLink from '../../utils/ScrollLink';
 
 const International = () => {
   const [state, setState] = useState(null);
   const [state2, setState2] = useState([]);
-  // const [state3, setState3] = useState([]);
-//   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     new Promise(resolve => setTimeout(resolve, 100))
@@ -20,10 +18,8 @@ const International = () => {
         setState2(list.slice(1, 5));
         // setState3(list.slice(5, 8));
       })
-    //   .finally(() => setLoading(false));
   }, []);
   if (!state) return null;
-//   if (loading) return <div>Loading...</div>;
 
   return (
     <div className='container'>
@@ -46,12 +42,12 @@ const International = () => {
                   <picture>
                     <Image
                       src={process.env.NEXT_PUBLIC_IMG_PATH + state.ImageBgPath}
-                      alt={state.DetailsHeading}
-                      title={state.DetailsHeading}
                       priority
                       style={{ width: '100%', height: 'auto', position: "relative" }}
                       width={800}
                       height={450}
+                      alt={state.DetailsHeading}
+                      title={state.DetailsHeading}
                     />
                   </picture>
                   {(state.ShowVideo === 1 || state.VideoID !== null) && (
@@ -81,12 +77,12 @@ const International = () => {
                             <picture>
                               <Image
                                 src={process.env.NEXT_PUBLIC_IMG_PATH + nc.ImageSmPath}
-                                alt={nc.DetailsHeading}
-                                title={nc.DetailsHeading}
                                 style={{ width: '100%', height: 'auto', position: "relative" }}
                                 priority
                                 width={120}
                                 height={67}
+                                alt={nc.DetailsHeading}
+                                title={nc.DetailsHeading}
                               />
                             </picture>
                             {(nc.ShowVideo === 1 || nc.VideoID !== null) && (
@@ -100,40 +96,9 @@ const International = () => {
                 </div>
               </div>
 
-              {/* <div className="col-md-6">
-                <div className="CatListWrap2">
-                  {state3.map((nc) => (
-                    <div className="Catlist" key={nc.ContentID}>
-                      <ScrollLink href={`/details/${nc.Slug}/${nc.ContentID}`}>
-                        <div className="row">
-                          <div className="col-md-7 col-7">
-                            <h3 className="Title">{nc.DetailsHeading}</h3>
-                          </div>
-                          <div className="col-md-5 col-5">
-                            <picture>
-                              <Image
-                                src={process.env.NEXT_PUBLIC_IMG_PATH + nc.ImageSmPath}
-                                alt={nc.DetailsHeading}
-                                title={nc.DetailsHeading}
-                                style={{ width: '100%', height: 'auto', position: "relative" }}
-                                priority
-                                width={120}
-                                height={67}
-                              />
-                            </picture>
-                            {(nc.ShowVideo === 1 || nc.VideoID !== null) && (
-                              <span className="play-btn"><i className="fas fa-play"></i></span>
-                            )}
-                          </div>
-                        </div>
-                      </ScrollLink>
-                    </div>
-                  ))}
-                </div>
-              </div> */}
               <div className="col-md-6">
                 <div className="Advertisement">
-                  <Image src={Ads} alt="Radhuni" title="radhuni" unoptimized priority />
+                  <Image src={Ads} unoptimized priority alt="Radhuni" title="radhuni" />
                 </div>
               </div>
 

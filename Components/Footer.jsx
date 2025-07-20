@@ -1,8 +1,7 @@
 "use client"
-import Link from 'next/link';
-import React from 'react';
-import Logo from "../pages/assets/media/common/logoWhiteNews.png"
 import Image from 'next/image';
+import Link from 'next/link';
+import Logo from "../pages/assets/media/common/logoWhiteNews.png";
 const Footer = () => {
     return (
         <footer className="bg-dark text-light pt-4 mt-5">
@@ -24,18 +23,18 @@ const Footer = () => {
                             </div>
                         </Link>
                         <div className="site-desc">
-                        <p>
-                            Trusted source for breaking news, analysis,<br /> and features in Bangladesh and beyond.
-                        </p>
+                            <p>
+                                Trusted source for breaking news, analysis,<br /> and features in Bangladesh and beyond.
+                            </p>
                         </div>
-                       
+
                     </div>
 
 
                     {/* Contact Info */}
                     <div className="col-md-6 mb-4 d-flex justify-content-center">
                         <div className="contact-area">
-                            <h5>Contact Us</h5>
+                            <h2>Contact Us</h2>
                             <p>Email: <a href='mail:info@newsportal.com'>info@newsportal.com</a></p>
                             <p>Phone: <a href="tel:+880-123-456789">+880-123-456789</a></p>
                             <p>Address: Dhaka, Bangladesh</p>
