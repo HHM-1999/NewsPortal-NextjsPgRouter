@@ -162,11 +162,11 @@ export default function ArchiveClient({ initialData = [], initialCatList = [] })
                                     <div className="card mb-3 mt-3">
                                         <Image
                                             src={`${process.env.NEXT_PUBLIC_IMG_PATH}${nc.ImageBgPath}`}
+                                            alt={nc.DetailsHeading}
+                                            title={nc.DetailsHeading}
                                             width={400}
                                             height={250}
                                             className="card-img-top img-fluid"
-                                            alt={nc.DetailsHeading}
-                                            title={nc.DetailsHeading}
                                         />
                                         <div className="card-body">
                                             <h5>{nc.DetailsHeading}</h5>

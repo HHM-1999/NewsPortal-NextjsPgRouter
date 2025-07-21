@@ -74,13 +74,13 @@ const Finance = () => {
                           <div className="col-md-5 col-5">
                             <picture>
                               <Image
+                                priority
                                 src={process.env.NEXT_PUBLIC_IMG_PATH + nc.ImageSmPath}
                                 style={{ width: '100%', height: 'auto', position: "relative" }}
-                                priority
-                                width={120}
-                                height={67}
                                 alt={nc.DetailsHeading}
                                 title={nc.DetailsHeading}
+                                width={120}
+                                height={67}
                               />
                             </picture>
                             {(nc.ShowVideo === 1 || nc.VideoID !== null) && (

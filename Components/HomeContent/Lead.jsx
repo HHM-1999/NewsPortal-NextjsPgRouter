@@ -33,13 +33,13 @@ const Lead = () => {
                   <Link href={`/details/${leadData.categorySlug}/${leadData.ContentID}`}>
                     <div className="DImageResize">
                       <Image
-                        src={process.env.NEXT_PUBLIC_IMG_PATH + leadData.ImageBgPath}
                         priority
+                        src={process.env.NEXT_PUBLIC_IMG_PATH + leadData.ImageBgPath}
+                        alt={leadData.DetailsHeading}
+                        title={leadData.DetailsHeading}
                         style={{ width: '100%', height: 'auto', position: 'relative' }}
                         width={800}
                         height={450}
-                        alt={leadData.DetailsHeading}
-                        title={leadData.DetailsHeading}
                       />
                     </div>
                     <div className="caption">
@@ -82,7 +82,7 @@ const Lead = () => {
 
           <div className="col-lg-3">
             <div className="Advertisement">
-              <Image src={Ads} alt="Radhuni" title="radhuni" unoptimized priority />
+              <Image priority src={Ads} alt="Radhuni" title="radhuni" unoptimized />
             </div>
           </div>
         </div>

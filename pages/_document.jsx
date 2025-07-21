@@ -8,7 +8,6 @@ export default function Document() {
             <Head >
                 <link rel="icon" href="/favicon.ico" />
                 <style data-next-hide-fouc="true"></style>
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta name="description" content="News Portal - Stay updated with the latest news in Bangladesh and around the world. Explore national, international, sports, entertainment, and feature news in Bengali." />
                 <meta name="keywords" content="News, Bangladesh, International News, Sports News, Entertainment News, Feature News, Bengali News" />
                 <meta name="author" content="News Portal Team" />

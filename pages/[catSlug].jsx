@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
 import Head from "next/head";
-import getApi from "../lib/getApi";
-import postApi from "../lib/postApi";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import getApi from "../lib/getApi";
+import postApi from "../lib/postApi";
 import NotFound from "./not-found";
 
 const limit = 8;
@@ -131,10 +131,10 @@ const CategoryPage = ({ category, newsList: initialNews, topContentIds, hasMore:
                       <Image
                         src={`${process.env.NEXT_PUBLIC_IMG_PATH + nc.ImageBgPath}`}
                         className="card-img-top img-fluid"
-                        width={400}
-                        height={500}
                         alt={nc.DetailsHeading}
                         title={nc.DetailsHeading}
+                        width={400}
+                        height={500}
                       />
                       <div className="card-body">
                         <h5>{nc.DetailsHeading}</h5>
