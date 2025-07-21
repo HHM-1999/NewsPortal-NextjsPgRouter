@@ -946,7 +946,69 @@ figcaption {
 
 }
 
+/* tag section */
+.RelatedTags {
+  padding: 20px 0;
+  /* border-top: 1px solid #d0d0d0; */
+}
 
+.RelatedTags .Subject {
+  display: inline;
+  color: #222;
+  font-size: 22px;
+}
+
+.RelatedTags .TagList {
+  margin-top: 10px;
+}
+
+.RelatedTags .TagList a {
+  float: left;
+  margin: 1px 10px 10px 0;
+  padding: 3px 10px;
+  background: #fff;
+  min-width: 70px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .25), 0 3px 10px 5px rgba(0, 0, 0, 0.05) !important;
+}
+
+.RelatedTags .TagList a p {
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  color: #4a4a4a !important;
+  line-height: 19px !important;
+  margin: 0 !important;
+  padding: 3px 10px;
+}
+
+.RelatedTags .TagList a:hover {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .25), 0 3px 10px 5px rgba(0, 0, 0, 0.05) !important;
+}
+
+.RelatedTags .TagList a:hover p {
+  color: #ED1C24 !important;
+}
+
+.DTagName {
+  /* margin: 15px 0; */
+  font-size: 23px;
+  font-weight: 500;
+
+}
+
+.DTagName i {
+  color: #333;
+  font-size: 28px;
+  line-height: 36px;
+  margin-right: 10px;
+}
+
+.DTagName h1 {
+  font-size: 32px;
+  line-height: 40px;
+  display: inline-block;
+}
 
 /* footer section */
 .site-desc p {

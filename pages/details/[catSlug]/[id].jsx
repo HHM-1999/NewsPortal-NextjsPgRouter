@@ -6,6 +6,7 @@ import Image from "next/image";
 import SocialShare from "./SocialShare";
 // import NotFound from "../../not-found";
 import Link from "next/link";
+import { FaTag } from "react-icons/fa";
 
 export async function getServerSideProps(context) {
   const { id } = context.params;
@@ -34,13 +35,14 @@ export async function getServerSideProps(context) {
     const popularData = (popularRes?.data || []).slice(0, 4);
     const catName = data[0]?.CategoryName
 
+
     return {
       props: {
         data,
         latestData,
         popularData,
         catName,
-        popularData
+        popularData,
       },
     };
   } catch (error) {
@@ -187,6 +189,26 @@ const NewsDetailsPage = ({ data, latestData, catName, popularData }) => {
                   style={{ marginTop: "20px" }}
                 />
               </div>
+
+              {nc.Tags && nc.Tags.length > 0 && (
+                <div className="RelatedTags d-print-none">
+                  <div className="row">
+                    <div className="col-sm-12">
+                      <p className="Subject"> <FaTag />  সম্পর্কিত বিষয়: </p>
+                      {(nc.Tags).split(',').map((nc) => {
+
+                        return (
+                          <div className="TagList" key={nc}>
+                            <Link href={"/tags/" + nc} ><p>{nc}</p></Link>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+
 
             </div>
             <div className="col-lg-4 col-12">
