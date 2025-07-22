@@ -22,13 +22,16 @@ export async function getServerSideProps(context) {
         }
 
         const formData = {
-            slug: TagTitle,
+            slug: decodeURIComponent(TagTitle),
             limit,
             offset: 0,
         };
 
+
         const newsResponse = await postApi(`tag-content`, formData);
-        const newsList = newsResponse?.data || [];
+        console.log("newsResponse:", newsResponse);
+
+        const newsList = newsResponse?.tag_contents || [];
         const hasMore = newsList.length === limit;
 
         return {
@@ -58,7 +61,7 @@ const TagPage = ({ Tags, newsList: initialNews, hasMore: initialHasMore }) => {
         setTransitioning(true);
         const timer = setTimeout(() => {
             setNewsList(initialNews);
-            console.log(initialNews);
+            // console.log(initialNews);
 
             setOffset(initialNews.length);
             setHasMore(initialHasMore);
@@ -76,10 +79,12 @@ const TagPage = ({ Tags, newsList: initialNews, hasMore: initialHasMore }) => {
             limit,
             offset,
         };
+        console.log(formData);
+
 
         try {
             const res = await postApi("tag-content", formData);
-            const newData = res?.data || [];
+            const newData = res?.tag_contents || [];
             setNewsList((prev) => [...prev, ...newData]);
             setOffset((prev) => prev + newData.length);
             if (newData.length < limit) setHasMore(false);
