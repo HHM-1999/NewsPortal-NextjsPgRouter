@@ -121,6 +121,29 @@ const NewsDetailsPage = ({ data, latestData, catName, popularData }) => {
               >
                 <h2 className="catnameDetails">{nc.CategoryName}  ::</h2>
                 <h1 className="content-Heading">{nc.DetailsHeading}</h1>
+                {/* writer section  */}
+                {nc.content_contributors && nc.content_contributors.length > 0 ? (
+                  nc.content_contributors[0].WriterName && (
+                    <Link href={`/writers/${nc.content_contributors[0].Slug}`}>
+                      <div className="writer-section">
+                        <p className="writer-name2">
+                          <strong>লেখক:</strong> <span>{nc.content_contributors[0].WriterName}</span>
+                        </p>
+                      </div>
+                    </Link>
+                  )
+                ) : (
+                  nc.WriterName && (
+                    <div className="writer-section">
+                      <p className="writer-name">
+                        <strong>লেখক:</strong> {nc.WriterName}
+                      </p>
+                    </div>
+                  )
+                )}
+
+
+
                 <SocialShare title={nc.DetailsHeading} contentID={nc.ContentID} />
 
                 {nc.VideoID && nc.ShowVideo === 1 ? (
@@ -189,7 +212,7 @@ const NewsDetailsPage = ({ data, latestData, catName, popularData }) => {
                   style={{ marginTop: "20px" }}
                 />
               </div>
-
+              {/* Tags section */}
               {nc.Tags && nc.Tags.length > 0 && (
                 <div className="RelatedTags d-print-none">
                   <div className="row">
@@ -207,6 +230,7 @@ const NewsDetailsPage = ({ data, latestData, catName, popularData }) => {
                   </div>
                 </div>
               )}
+
 
 
 

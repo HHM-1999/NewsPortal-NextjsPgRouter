@@ -176,6 +176,7 @@ const Header = () => {
                                     { path: "/feature", label: "ফিচার" },
                                     { path: "/education", label: "শিক্ষা" },
                                     { path: "/lifestyle", label: "লাইফস্টাইল" },
+                                    { path: "/opinion", label: "মতামত" },
                                     { path: "/archieves", label: "আর্কাইভ" },
                                 ].map((item, idx) => (
                                     <li className="nav-item" key={idx}>

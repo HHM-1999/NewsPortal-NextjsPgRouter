@@ -1,22 +1,5 @@
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
-
-/* html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-} */
 
 body {
   font-family: var(--font-tiro-bangla);
@@ -58,6 +41,11 @@ p {
   font-size: 16px;
   line-height: 26px;
   font-family: var(--font-tiro-bangla);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .container {
@@ -866,16 +854,16 @@ figcaption {
   height: 65px;
 }
 
+.category-area .card-body {
+  height: 130px;
+}
+
 .category-area .card-body p {
   font-size: 17px;
   color: #333;
   line-height: 27px;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  display: -webkit-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
   font-family: var(--font-tiro-bangla);
+
 }
 
 .category-area .col-lg-6 a {
@@ -1008,6 +996,24 @@ figcaption {
   font-size: 32px;
   line-height: 40px;
   display: inline-block;
+}
+
+/* writer */
+.writer-name {
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 26px;
+  font-family: var(--font-tiro-bangla);
+  color: #333;
+}
+
+.writer-name2 span {
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 26px;
+  font-family: var(--font-tiro-bangla);
+  color: #a70606;
+
 }
 
 /* footer section */
