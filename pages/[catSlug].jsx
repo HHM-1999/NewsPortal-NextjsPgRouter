@@ -16,6 +16,9 @@ export async function getServerSideProps(context) {
     const { catSlug } = context.params;
     const CategoryList = await getApi(`category/${catSlug}`);
     const category = CategoryList?.category;
+    const SubCategory = category?.subCategories;
+    // console.log(SubCategory);
+
 
     if (!category) {
       return { notFound: true };
@@ -40,6 +43,8 @@ export async function getServerSideProps(context) {
     return {
       props: {
         category,
+        catSlug,
+        SubCategory,
         newsList,
         topContentIds,
         hasMore,
@@ -51,7 +56,7 @@ export async function getServerSideProps(context) {
   }
 }
 
-const CategoryPage = ({ category, newsList: initialNews, topContentIds, hasMore: initialHasMore }) => {
+const CategoryPage = ({ category, catSlug, SubCategory, newsList: initialNews, topContentIds, hasMore: initialHasMore }) => {
   const router = useRouter();
   const [newsList, setNewsList] = useState(initialNews);
   const [offset, setOffset] = useState(initialNews.length);
@@ -113,6 +118,41 @@ const CategoryPage = ({ category, newsList: initialNews, topContentIds, hasMore:
             <div className="CatTitle">
               <h1 className="text-center">{category?.CategoryName}</h1>
             </div>
+            <div className="DDivisionNav my-4 mt-4">
+              <div className="row">
+                <div className="col-lg-12 d-flex justify-content-center">
+                  <div className="text-center">
+                    <ul className="nav">
+                      {SubCategory && SubCategory.length > 0 ? (
+                        SubCategory.map((nc, i) => {
+                          return (
+                            <li className="dropdown" key={i}>
+                              <Link href={`/${catSlug}/${nc.Slug}`}>
+                                {nc.CategoryName}
+                              </Link>
+                            </li>
+                          );
+                        })
+                      ) : (
+                        false
+                      )}
+                    </ul>
+                    {/* {loading ? (
+                        // Show Skeleton Loaders
+                        Array.from({ length: 5 }).map((_, i) => (
+                          <li className="dropdown skeleton" key={i} style={{ background: "#eee", height: "20px", width: "100px", margin: "5px 10px" }}></li>
+                        ))
+                      ) : (
+                        catName.map((nc, i) => (
+                          <li className="dropdown" key={i}>
+                            <Link to={`/${slug}/${nc.Slug}`}>{nc.CategoryName}</Link>
+                          </li>
+                        ))
+                      )} */}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         {transitioning ? (
@@ -157,7 +197,7 @@ const CategoryPage = ({ category, newsList: initialNews, topContentIds, hasMore:
           </>
         )}
 
-      </div>
+      </div >
 
     </>
   );

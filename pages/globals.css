@@ -876,6 +876,36 @@ figcaption {
 
 }
 
+/* Sub category section */
+.DDivisionNav .dropdown:hover>.dropdown-menu {
+  display: block;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 5px;
+}
+
+.DDivisionNav .nav {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.DDivisionNav .nav li {
+  float: left;
+  margin-bottom: 12px;
+  font-family: var(--font-tiro-bangla);
+}
+
+.DDivisionNav .nav li a {
+  padding: 8px 15px 6px;
+  margin-right: 1px;
+  background-color: transparent;
+  border-bottom: 1px solid #fff;
+  font-size: 1.1em;
+  color: #333;
+  background-color: #ddd;
+}
+
 /* styles/shimmer.module.css */
 .shimmerWrapper {
   position: relative;
