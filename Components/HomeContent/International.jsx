@@ -4,8 +4,8 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import getApi from '../../lib/getApi';
 import Ads from '../../pages/assets/media/advertisement/13982910857184178936.gif';
-import ScrollLink from '../../utils/ScrollLink';
-
+// import Link from '../../utils/Link';
+import Link from 'next/link'
 const International = () => {
   const [state, setState] = useState(null);
   const [state2, setState2] = useState([]);
@@ -23,7 +23,7 @@ const International = () => {
 
   return (
     <div className='container'>
-      <ScrollLink href={"/international"}>
+      <Link href={"/international"}>
         <div className="section-header">
           <div className="section-title">
             <span className="shadow-text">আন্তর্জাতিক</span>
@@ -31,14 +31,14 @@ const International = () => {
             <span className="arrow">&rsaquo;</span>
           </div>
         </div>
-      </ScrollLink>
+      </Link>
 
       <div className="natioonal-area">
         <div className="row">
           <div className="col-md-5 border-right-inner2">
             <div className="lead-news">
               {state && (
-                <ScrollLink href={`/details/${state.Slug}/${state.ContentID}`}>
+                <Link href={`/details/${state.Slug}/${state.ContentID}`}>
                   <picture>
                     <Image
                       src={process.env.NEXT_PUBLIC_IMG_PATH + state.ImageBgPath}
@@ -57,7 +57,7 @@ const International = () => {
                   <div className="Brief">
                     <p>{state.ContentBrief}</p>
                   </div>
-                </ScrollLink>
+                </Link>
               )}
             </div>
           </div>
@@ -68,7 +68,7 @@ const International = () => {
                 <div className="CatListWrap1">
                   {state2.map((nc) => (
                     <div className="Catlist" key={nc.ContentID}>
-                      <ScrollLink href={`/details/${nc.Slug}/${nc.ContentID}`}>
+                      <Link href={`/details/${nc.Slug}/${nc.ContentID}`}>
                         <div className="row">
                           <div className="col-md-7 col-7">
                             <h3 className="Title">{nc.DetailsHeading}</h3>
@@ -90,7 +90,7 @@ const International = () => {
                             )}
                           </div>
                         </div>
-                      </ScrollLink>
+                      </Link>
                     </div>
                   ))}
                 </div>

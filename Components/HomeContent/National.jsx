@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import getApi from '../../lib/getApi';
 import Ads from '../../pages/assets/media/advertisement/shopnodhora-30-12-24.jpg';
-import ScrollLink from '../../utils/ScrollLink';
+import Link from 'next/link'
 const National = () => {
   const [state, setState] = useState(null);
   const [state2, setState2] = useState([]);
@@ -24,7 +24,7 @@ const National = () => {
   if (!state) return null;
   return (
     <div className='container'>
-      <ScrollLink href={"/national"}>
+      <Link href={"/national"}>
         <div className="section-header">
           <div className="section-title">
             <span className="shadow-text">জাতীয়</span>
@@ -32,14 +32,14 @@ const National = () => {
             <span className="arrow">&rsaquo;</span>
           </div>
         </div>
-      </ScrollLink>
+      </Link>
 
       <div className="natioonal-area">
         <div className="row">
           <div className="col-md-5 border-right-inner2">
             <div className="lead-news">
               {state && (
-                <ScrollLink href={`/details/${state.Slug}/${state.ContentID}`}>
+                <Link href={`/details/${state.Slug}/${state.ContentID}`}>
                   <picture>
                     <Image
                       src={process.env.NEXT_PUBLIC_IMG_PATH + state.ImageBgPath}
@@ -58,7 +58,7 @@ const National = () => {
                   <div className="Brief">
                     <p>{state.ContentBrief}</p>
                   </div>
-                </ScrollLink>
+                </Link>
               )}
             </div>
           </div>
@@ -69,7 +69,7 @@ const National = () => {
                 <div className="CatListWrap1">
                   {state2.map(nc => (
                     <div className="Catlist" key={nc.ContentID}>
-                      <ScrollLink href={`/details/${nc.Slug}/${nc.ContentID}`}>
+                      <Link href={`/details/${nc.Slug}/${nc.ContentID}`}>
                         <div className="row">
                           <div className="col-md-5 col-5">
                             <picture>
@@ -91,7 +91,7 @@ const National = () => {
                             <h3 className="Title">{nc.DetailsHeading}</h3>
                           </div>
                         </div>
-                      </ScrollLink>
+                      </Link>
                     </div>
                   ))}
                 </div>

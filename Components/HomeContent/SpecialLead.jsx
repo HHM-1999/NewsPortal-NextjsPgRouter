@@ -17,7 +17,7 @@ const SpecialLead = () => {
 
   }, []);
 
-  //   if (loading) return <div>Loading...</div>;
+
   if (!leadData) return null;
   return (
     <div className="container">
