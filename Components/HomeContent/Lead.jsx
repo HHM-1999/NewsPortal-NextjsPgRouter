@@ -43,7 +43,7 @@ const Lead = () => {
                       />
                     </div>
                     <div className="caption">
-                      <h3>{leadData.DetailsHeading}</h3>
+                      <h1>{leadData.DetailsHeading}</h1>
                     </div>
                   </Link>
                 </div>
