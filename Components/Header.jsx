@@ -132,6 +132,7 @@ const Header = () => {
                                 { path: "/entertainment", label: "বিনোদন" },
                                 { path: "/feature", label: "ফিচার" },
                                 { path: "/education", label: "শিক্ষা" },
+                                { path: "/videos", label: "ভিডিও" },
                                 { path: "/lifestyle", label: "লাইফস্টাইল" },
                                 { path: "/archieves", label: "আর্কাইভ" },
                             ].map((item, idx) => (
@@ -140,7 +141,7 @@ const Header = () => {
                                         className="nav-link"
                                         href={item.path}
                                         prefetch={false}
-                                        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                                        // onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                                     >
                                         {item.label}
                                     </Link>
@@ -185,10 +186,10 @@ const Header = () => {
                                             className="nav-link"
                                             href={item.path}
                                             prefetch={false}
-                                            onClick={() => {
-                                                closeOffcanvas();
-                                                window.scrollTo({ top: 0, behavior: 'smooth' });
-                                            }}
+                                            // onClick={() => {
+                                            //     closeOffcanvas();
+                                            //     window.scrollTo({ top: 0, behavior: 'smooth' });
+                                            // }}
                                         >
                                             {item.label}
                                         </Link>
