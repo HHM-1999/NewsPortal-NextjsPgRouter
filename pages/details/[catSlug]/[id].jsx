@@ -71,9 +71,9 @@ const NewsDetailsPage = ({ data, latestData, catName, popularData }) => {
     headline: firstContentItem?.DetailsHeading,
     image: [`${process.env.NEXT_PUBLIC_IMG_PATH}/${firstContentItem?.ImageSmPath}`],
     datePublished: "", // optional
-    author: [{ "@type": "Organization", name: "NewsPortal" }],
+    author: [{ "@type": "News Article", name: "NewsPortal" }],
     publisher: {
-      "@type": "Organization",
+      "@type": "News Article",
       name: "NewsPortal",
     },
   };
