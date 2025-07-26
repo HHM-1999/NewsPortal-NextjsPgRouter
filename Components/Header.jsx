@@ -168,6 +168,7 @@ const Header = () => {
                             </a>
                             <ul className="navbar-nav2">
                                 {[
+                                    { path: "/videos", label: "ভিডিও" },
                                     { path: "/national", label: "জাতীয়" },
                                     { path: "/international", label: "আন্তর্জাতিক" },
                                     { path: "/sports", label: "খেলাধুলা" },
