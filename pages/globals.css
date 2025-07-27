@@ -875,6 +875,21 @@ figcaption {
   font-family: var(--font-tiro-bangla);
 
 }
+.subcat-nav {
+  margin-bottom: 20px;
+}
+.subcat-nav a:hover {
+  background-color: #141414;
+}
+.subcat-nav a {
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-family: var(--font-tiro-bangla);
+  color: #000;
+}
+
 
 /* Sub category section */
 .DDivisionNav .dropdown:hover>.dropdown-menu {

@@ -9,27 +9,16 @@ import getApi from "../../lib/getApi";
 import postApi from "../../lib/postApi";
 import NotFound from "../not-found";
 
-const limit = 8;
+const limit = 6;
 
 export async function getServerSideProps(context) {
     try {
         const { catSlug, subCatSlug } = context.params;
         const CategoryList = await getApi(`category/${catSlug}`);
         const category = CategoryList?.category;
-        const SubCategoryList = await getApi(`sub-categorys/${catSlug}/${encodeURIComponent(subCatSlug)}`);
+        const SubCategoryList = await getApi(`sub-categorys/${catSlug}/${subCatSlug}`);
         const Subcategory = SubCategoryList?.subCategories;
         const subCatId = Subcategory?.CategoryID
-        // console.log(subCatId);
-
-
-        // const SubCategory = category?.subCategories;
-        // console.log(SubCategory);
-
-
-        // if (!Subcategory) {
-        //     return { notFound: true };
-        // }
-
         const catID = category.CategoryID;
 
         const leadNews = await getApi(`inner-sub-category-content/${subCatId}/10`);
@@ -117,6 +106,8 @@ const SubCategoryPage = ({ catID, leadNewsList, Subcategory, newsList: initialNe
         <>
             <Head>
                 <title>{Subcategory?.CategoryName}</title>
+                <meta name="description" content={Subcategory?.CategoryName} />
+                <meta name="keywords" content={Subcategory?.CategoryName} />
                 <meta property="og:title" content={Subcategory?.CategoryName} />
                 <meta property="og:description" content={Subcategory?.CategoryName} />
             </Head>

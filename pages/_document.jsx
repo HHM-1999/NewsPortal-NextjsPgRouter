@@ -6,14 +6,10 @@ export default function Document() {
     return (
         <Html lang="bn">
             <Head >
-                <link rel="icon" href="/favicon.ico" />
-                <style data-next-hide-fouc="true"></style>
-                <meta name="description" content="News Portal - Stay updated with the latest news in Bangladesh and around the world. Explore national, international, sports, entertainment, and feature news in Bengali." />
-                <meta name="keywords" content="News, Bangladesh, International News, Sports News, Entertainment News, Feature News, Bengali News" />
-                <meta name="author" content="News Portal Team" />
                 <meta name="robots" content="noindex, nofollow" />
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+                <link rel="icon" href="/favicon.ico" />
             </Head>
             <body>
                 <Main />
