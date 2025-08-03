@@ -12,11 +12,12 @@ const Header = () => {
     const [isSticky, setIsSticky] = useState(false);
     const closeOffcanvas = () => {
         const offcanvasElement = document.getElementById('staticBackdrop');
-        const offcanvasInstance = window.bootstrap?.Offcanvas.getInstance(offcanvasElement);
+        const offcanvasInstance = window.bootstrap?.Offcanvas.getInstance(offcanvasElement) || new window.bootstrap.Offcanvas(offcanvasElement);
         if (offcanvasInstance) {
-            offcanvasInstance.hide();
+          offcanvasInstance.hide();
         }
-    };
+      };
+      
 
 
     const today = new Date().toLocaleDateString('bn-BD', {
@@ -186,10 +187,10 @@ const Header = () => {
                                             className="nav-link"
                                             href={item.path}
                                             prefetch={false}
-                                            // onClick={() => {
-                                            //     closeOffcanvas();
-                                            //     window.scrollTo({ top: 0, behavior: 'smooth' });
-                                            // }}
+                                            onClick={() => {
+                                                closeOffcanvas();
+                                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                                              }}
                                         >
                                             {item.label}
                                         </Link>
