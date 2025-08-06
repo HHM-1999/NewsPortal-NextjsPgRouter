@@ -7,6 +7,7 @@ import { FaInstagram } from "react-icons/fa";
 import { FaWhatsapp, FaXTwitter } from "react-icons/fa6";
 import { RiFacebookFill, RiLinkedinBoxFill } from "react-icons/ri";
 import Logo from '../pages/assets/media/common/logo2.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Header = () => {
     const [isSticky, setIsSticky] = useState(false);
@@ -83,6 +84,7 @@ const Header = () => {
                                     <li><a href="#" target="_blank"><RiLinkedinBoxFill className='icon fa-linkedin'></RiLinkedinBoxFill></a></li>
                                     <li><a href="#" target="_blank"><AiFillYoutube className='icon fa-youtube '></AiFillYoutube ></a></li>
                                     <li><a href="#" target="_blank"><FaWhatsapp className='icon fa-whatsapp'></FaWhatsapp></a></li>
+                                    <li><Link href="/search"><i className="icon fa-solid fa-magnifying-glass"></i></Link></li>
                                 </ul>
                             </div>
                         </div>
