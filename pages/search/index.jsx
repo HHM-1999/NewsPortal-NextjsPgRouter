@@ -5,9 +5,8 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import Link from "next/link";
 import postApi from "../../lib/postApi";
-// import { scrollTop, ForLazyLoaderImg, formatDateToBengali } from "@/lib/AllFunctions";
 
-const limit = 12;
+const limit = 10;
 
 export default function SearchResult() {
     const router = useRouter();
@@ -91,13 +90,17 @@ export default function SearchResult() {
         <main>
             <Head>
                 <title>খুঁজুন</title>
+                <meta name="description" content="খুঁজুন :: NewsPortal" />
+                <meta name="keywords" content="খুঁজুন :: NewsPortal" />
+                <meta property="og:title" content="খুঁজুন :: NewsPortal" />
+                <meta property="og:description" content="খুঁজুন :: NewsPortal" />
             </Head>
 
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12 mt-3">
                         <div className="CatTitle">
-                            <h1 className="text-center"> <a href={`/search?q=${searchValue}`} >
+                            <h1 className="text-center"> <a href={`/search`} >
                                 <span>খুঁজুন</span>
                             </a></h1>
                         </div>
@@ -192,12 +195,12 @@ export default function SearchResult() {
                             //     </button>
                             // </div>
                             <div className="col-12 text-center my-4 loadMorebtn">
-                            <button className="btn btn-primary" onClick={handleLoadMore} disabled={isLoadingData}>
-                                {isLoadingData ? "লোড হচ্ছে..." : "আরো দেখুন"}
-                            </button>
-                        </div>
+                                <button className="btn btn-primary" onClick={handleLoadMore} disabled={isLoadingData}>
+                                    {isLoadingData ? "লোড হচ্ছে..." : "আরো দেখুন"}
+                                </button>
+                            </div>
                         )}
-                       
+
                     </>
                 )}
             </div>

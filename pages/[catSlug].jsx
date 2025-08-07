@@ -10,6 +10,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import getApi from "../lib/getApi";
 import postApi from "../lib/postApi";
 import NotFound from "./not-found";
+import DivisionDistricName from "./divisions/DistrictDivision";
 
 const limit = 6;
 
@@ -46,6 +47,7 @@ export async function getServerSideProps(context) {
         hasMore,
         catID,
         leadNewsList,
+        catSlug
       },
     };
   } catch (error) {
@@ -58,6 +60,7 @@ const CategoryPage = ({
   catID,
   leadNewsList,
   category,
+  catSlug,
   newsList: initialNews,
   topContentIds,
   hasMore: initialHasMore,
@@ -131,21 +134,23 @@ const CategoryPage = ({
               <h1 className="text-center">{category?.CategoryName}</h1>
             </div>
             {/* ✅ Subcategory Navigation */}
-{category.subCategories && category.subCategories.length > 0 && (
-  <div className="col-12 mt-3">
-    <div className="subcat-nav d-flex flex-wrap justify-content-center gap-2">
-      {category.subCategories.map((subcat) => (
-        <Link
-          key={subcat.CategoryID}
-          href={`/${category.Slug}/${subcat.Slug}`}
-          className="btn btn-outline-secondary btn-sm"
-        >
-          {subcat.CategoryName}
-        </Link>
-      ))}
-    </div>
-  </div>
-)}
+            {catSlug === "country" ? <DivisionDistricName /> : <>
+              {category.subCategories && category.subCategories.length > 0 && (
+                <div className="col-12 mt-3">
+                  <div className="subcat-nav d-flex flex-wrap justify-content-center gap-2">
+                    {category.subCategories.map((subcat) => (
+                      <Link
+                        key={subcat.CategoryID}
+                        href={`/${category.Slug}/${subcat.Slug}`}
+                        className="btn btn-outline-secondary btn-sm"
+                      >
+                        {subcat.CategoryName}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </>}
 
           </div>
         </div>

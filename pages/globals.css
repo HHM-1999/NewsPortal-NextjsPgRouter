@@ -862,11 +862,10 @@ figcaption {
   overflow: hidden;
   text-overflow: ellipsis;
   text-decoration: none;
-  height: 65px;
 }
 
 .category-area .card-body {
-  height: 130px;
+  height: 150px;
 }
 
 .category-area .card-body p {
@@ -874,6 +873,12 @@ figcaption {
   color: #333;
   line-height: 27px;
   font-family: var(--font-tiro-bangla);
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none;
 
 }
 
@@ -1044,6 +1049,56 @@ figcaption {
 
 }
 
+/* District Division segment */
+.districtNames {
+	padding: 10px 20px;
+	background-color: #ddd;
+	text-align: center;
+}
+.districtNames h2{
+  font-size: 20px;
+  color: #333;
+}
+.DisitrictContent img{
+  padding-bottom: 8px;
+}
+.DisitrictContent h3{
+  font-size: 18px;
+  line-height: 28px;
+  font-family: var(--font-tiro-bangla);
+  color: #000;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none;
+}
+.DisitrictContent2{
+  border-top: 1px solid #e3e3e3;
+  padding: 10px 0 10px 0;
+}
+.DisitrictContent2 h3{
+  font-size: 17px;
+  line-height: 28px;
+  font-family: var(--font-tiro-bangla);
+  color: #333;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  font-weight: 400;
+}
+.DistrictListNews{
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+.pDate{
+  margin-top: 20px;
+}
 /* tag section */
 .RelatedTags {
   padding: 20px 0;

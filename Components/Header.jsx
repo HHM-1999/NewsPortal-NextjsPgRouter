@@ -131,6 +131,7 @@ const Header = () => {
                                 { path: "/national", label: "জাতীয়", target: "_self" },
                                 { path: "/international", label: "আন্তর্জাতিক", target: "_self" },
                                 { path: "/sports", label: "খেলাধুলা", target: "_self" },
+                                { path: "/country", label: "দেশজুড়ে", target: "_self" },
                                 { path: "/finance-and-trade", label: "অর্থ-বাণিজ্য" },
                                 { path: "/entertainment", label: "বিনোদন" },
                                 { path: "/feature", label: "ফিচার" },
