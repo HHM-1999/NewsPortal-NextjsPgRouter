@@ -85,6 +85,7 @@ const DistrictSlugPage = ({ districtName, districtSlug, initialContents, hasMore
         <>
             <Head>
                 <title>{districtName}</title>
+                <meta name="title" content={districtName} />
                 <meta name="description" content={districtName} />
                 <meta name="keywords" content={districtName} />
             </Head>
