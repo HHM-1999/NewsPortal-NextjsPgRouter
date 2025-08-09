@@ -45,13 +45,10 @@ const DistrictSlugPage = ({ districtName, districtSlug, initialContents, hasMore
     const [hasMore, setHasMore] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    const router = useRouter();
-
     useEffect(() => {
         setDistrictContentList(initialContents);
         setOffset(initialContents.length);
         setHasMore(initialHasMore);
-        // ForLazyLoaderImg(false);
     }, [initialContents, initialHasMore]);
 
     const handleLoadMore = async () => {
