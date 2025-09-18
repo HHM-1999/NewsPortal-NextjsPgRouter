@@ -12,7 +12,28 @@ import getApi from "../../../lib/getApi";
 import SocialShare from "./SocialShare";
 import { FaTag } from "react-icons/fa";
 
-export async function getServerSideProps(context) {
+// ✅ SSG setup
+export async function getStaticPaths() {
+  try {
+    // Pre-build a limited set of pages (e.g. latest 50 articles)
+    const response = await getApi("content-list?limit=50");
+    const contents = response?.data || [];
+
+    const paths = contents.map((item) => ({
+      params: { id: String(item.ContentID) },
+    }));
+
+    return {
+      paths,
+      fallback: "blocking", // Generate missing pages on first request
+    };
+  } catch (error) {
+    console.error("Error generating static paths:", error?.message);
+    return { paths: [], fallback: "blocking" };
+  }
+}
+
+export async function getStaticProps(context) {
   const { id } = context.params;
 
   try {
@@ -34,9 +55,10 @@ export async function getServerSideProps(context) {
         popularData: popularRes?.data?.slice(0, 4) || [],
         catName: data[0]?.CategoryName,
       },
+      revalidate: 60, // ISR: re-generate every 60 seconds
     };
   } catch (error) {
-    console.error("SSR ERROR for content ID", id, error?.message);
+    console.error("SSG ERROR for content ID", id, error?.message);
     return { notFound: true };
   }
 }
@@ -68,7 +90,6 @@ const NewsDetailsPage = ({ data, latestData, catName, popularData }) => {
     author: [{ "@type": "News Article", name: "NewsPortal" }],
     publisher: { "@type": "News Article", name: "NewsPortal" },
   };
-
   return (
     <>
       <Head>
