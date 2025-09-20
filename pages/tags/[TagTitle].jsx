@@ -29,7 +29,7 @@ export async function getServerSideProps(context) {
 
 
         const newsResponse = await postApi(`tag-content`, formData);
-        console.log("newsResponse:", newsResponse);
+        // console.log("newsResponse:", newsResponse);
 
         const newsList = newsResponse?.tag_contents || [];
         const hasMore = newsList.length === limit;

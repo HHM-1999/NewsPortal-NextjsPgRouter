@@ -29,7 +29,7 @@ export async function getServerSideProps(context) {
 
 
         const newsResponse = await postApi(`writers-contents`, formData);
-        console.log("newsResponse:", newsResponse);
+        // console.log("newsResponse:", newsResponse);
 
         const newsList = newsResponse?.writers_content || [];
         const hasMore = newsList.length === limit;
@@ -79,7 +79,7 @@ const TagPage = ({ Writers, newsList: initialNews, hasMore: initialHasMore }) =>
             limit,
             offset,
         };
-        console.log(formData);
+        // console.log(formData);
 
 
         try {

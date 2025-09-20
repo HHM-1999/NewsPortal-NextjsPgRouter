@@ -7,7 +7,6 @@ import { FaInstagram } from "react-icons/fa";
 import { FaWhatsapp, FaXTwitter } from "react-icons/fa6";
 import { RiFacebookFill, RiLinkedinBoxFill } from "react-icons/ri";
 import Logo from '../pages/assets/media/common/logo2.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Header = () => {
     const [isSticky, setIsSticky] = useState(false);
